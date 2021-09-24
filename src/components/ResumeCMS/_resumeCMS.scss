@@ -1,0 +1,18 @@
+@import '../../assets/styleSheets/global';
+
+.resumeCMS {
+    .resumeCMSFormContainer {
+        display: grid;
+        grid-template: auto / 1fr 1fr 1fr;
+        grid-gap: 20px;
+
+        @include break-at(lg) {
+            grid-template: max-content max-content max-content / auto;
+        }
+
+        form {
+            width: 100%;
+            max-width: 420px;
+        }
+    }
+}

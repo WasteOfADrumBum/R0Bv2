@@ -1,0 +1,139 @@
+@import '../../assets/styleSheets/global';
+
+.toggle-switch {
+    display: inline-block;
+    position: relative;
+    text-align: left;
+    user-select: none;
+    vertical-align: middle;
+    width: 75px;
+
+    @media screen and (max-width: 991px) {
+        transform: scale(0.9);
+    }
+
+    @media screen and (max-width: 767px) {
+        transform: scale(0.825);
+    }
+
+    @media screen and (max-width: 575px) {
+        transform: scale(0.75);
+    }
+
+    &-checkbox {
+        display: none;
+    }
+
+    &-label {
+        border: 0 solid $label;
+        border-radius: 20px;
+        cursor: pointer;
+        display: block;
+        margin: 0;
+        overflow: hidden;
+
+        &:focus {
+            outline: none;
+
+            >span {
+                box-shadow: 0 0 2px 5px $ruby;
+            }
+        }
+
+        >span:focus {
+            outline: none;
+        }
+    }
+
+    &-inner {
+        display: block;
+        margin-left: -100%;
+        transition: margin 0.3s ease-in 0s;
+        width: 200%;
+
+        &:before,
+        &:after {
+            box-sizing: border-box;
+            color: $white;
+            display: block;
+            float: left;
+            font-size: 14px;
+            font-weight: bold;
+            height: 34px;
+            line-height: 34px;
+            padding: 0;
+            width: 50%;
+        }
+
+        &:before {
+            background-color: $toggle;
+            color: $white;
+            content: attr(data-yes);
+            padding-left: 10px;
+            text-transform: uppercase;
+        }
+    }
+
+    &-disabled {
+        background-color: $disabled;
+        cursor: not-allowed;
+
+        &:before {
+            background-color: $disabled;
+            cursor: not-allowed;
+        }
+    }
+
+    &-inner:after {
+        background-color: $label;
+        color: $white;
+        content: attr(data-no);
+        padding-right: 10px;
+        text-align: right;
+        text-transform: uppercase;
+    }
+
+    &-switch {
+        background: $white;
+        border: 0 solid $label;
+        border-radius: 20px;
+        bottom: 0;
+        display: block;
+        margin: 5px;
+        position: absolute;
+        right: 40px;
+        top: 0;
+        transition: all 0.3s ease-in 0s;
+        width: 24px;
+    }
+
+    &-checkbox:checked+&-label {
+        .toggle-switch-inner {
+            margin-left: 0;
+        }
+
+        .toggle-switch-switch {
+            right: 0px;
+        }
+    }
+
+    &.small-switch {
+        width: 40px;
+
+        .toggle-switch-inner {
+
+            &:after,
+            &:before {
+                content: "";
+                height: 20px;
+                line-height: 20px;
+            }
+        }
+
+        .toggle-switch-switch {
+            margin: 2px;
+            right: 20px;
+            width: 16px;
+        }
+    }
+}

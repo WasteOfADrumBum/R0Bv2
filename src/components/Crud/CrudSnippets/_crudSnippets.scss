@@ -1,0 +1,32 @@
+@import '../../../assets/styleSheets/global';
+
+.crudSnippets {
+
+    #createAccordion,
+    #deleteAccordion,
+    #readAccordion,
+    #updateAccordion {
+        .accordion-button:not(.collapsed) {
+            background-color: $react;
+            color: $white;
+        }
+    }
+
+    .crudSnippetDesc {
+        display: grid;
+        grid-gap: 20px;
+        grid-template: auto / auto auto;
+
+        @include break-at(md) {
+            grid-template: auto auto / auto;
+
+            &:first-child {
+                text-align: center;
+            }
+        }
+
+        .accentColor {
+            color: $info;
+        }
+    }
+}

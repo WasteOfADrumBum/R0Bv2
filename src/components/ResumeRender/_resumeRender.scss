@@ -1,0 +1,36 @@
+@import '../../assets/styleSheets/global';
+
+.resumeRender {
+    .resumeSectionHdr {
+        display: grid;
+        grid-template-columns: 40px max-content 1fr;
+        grid-gap: 10px;
+        text-transform: uppercase;
+
+        @include break-at(lg) {
+            grid-template-columns: 40px 1fr;
+        }
+
+        i {
+            justify-self: center;
+            align-self: center;
+        }
+
+        hr {
+            @include break-at(lg) {
+                display: none;
+            }
+        }
+
+        h2 {
+            @include break-at(lg) {
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+            }
+        }
+    }
+
+    .carousel {
+        margin: 0;
+    }
+}

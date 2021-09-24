@@ -1,0 +1,42 @@
+@import '../../assets/styleSheets/global';
+
+.codeSnippet {
+    #auth0Accordion {
+        .accordion-button:not(.collapsed) {
+            background-color: $auth0;
+            color: $white;
+        }
+    }
+
+    #bootstrapAccordion {
+        .accordion-button:not(.collapsed) {
+            background-color: $bootstrap;
+            color: $white;
+        }
+    }
+
+    #reactAccordion {
+        .accordion-button:not(.collapsed) {
+            background-color: $react;
+            color: $white;
+        }
+    }
+
+    .codeSnippetDesc {
+        display: grid;
+        grid-template: auto / auto auto;
+        grid-gap: 20px;
+
+        .accentColor {
+            color: $info;
+        }
+
+        @include break-at(md) {
+            grid-template: auto auto / auto;
+
+            &:first-child {
+                text-align: center;
+            }
+        }
+    }
+}

@@ -1,0 +1,81 @@
+@import '../../assets/styleSheets/global';
+
+.creatorProfile {
+    img {
+        box-shadow: .2rem .4rem .8rem $darkGray;
+    }
+
+    .profileContainer {
+        display: grid;
+        grid-auto-flow: dense;
+        grid-gap: 30px;
+        grid-template: auto / 30% 70%;
+
+        @include break-at(lg) {
+            grid-template: auto auto / auto;
+        }
+
+        .profileImg {
+            max-width: 318px;
+        }
+
+        .profileDesc {
+            display: grid;
+            grid-template: auto auto / auto auto;
+            grid-gap: 10px;
+
+            @include break-at(sm) {
+                grid-template: auto / auto;
+            }
+
+            .profileBio {
+                grid-column: 1 / span 2;
+
+                @include break-at(sm) {
+                    grid-column: 1;
+                }
+            }
+
+            .profileContact {
+                display: grid;
+                grid-template: auto / 70px 70px;
+                grid-gap: 6px;
+                justify-content: end;
+
+                @include break-at(sm) {
+                    justify-content: start;
+                }
+
+                a {
+                    background-color: none;
+                    border-radius: 50%;
+                    box-shadow: 0.1rem 0.2rem 0.4rem $darkGray;
+                    cursor: pointer;
+                    display: grid;
+                    height: 60px;
+                    position: relative;
+                    transition: .25s all ease;
+                    width: 60px;
+                    align-self: center;
+                    justify-self: center;
+
+                    &:hover {
+                        text-decoration: none;
+                        transform: scale(.9);
+                    }
+                }
+
+                i {
+                    align-self: center;
+                    justify-self: center;
+                    font-size: 30px;
+                    color: $black
+                }
+            }
+        }
+
+
+    }
+
+
+}

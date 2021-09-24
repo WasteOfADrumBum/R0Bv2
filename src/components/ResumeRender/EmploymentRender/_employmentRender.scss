@@ -1,0 +1,38 @@
+@import '../../../assets/styleSheets/global';
+
+.employmentRender {
+    .employment {
+        border-bottom: 1px solid $label;
+        display: grid;
+        grid-template-columns: 1fr;
+
+        &:last-of-type {
+            border-bottom: none;
+        }
+
+        .title {
+            color: $black;
+            font-size: 1.3rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .company,
+        .employmentType {
+            color: $black;
+            font-weight: 500;
+        }
+
+        .startDate,
+        .endDate,
+        .locationCity,
+        .locationState {
+            color: rgba(0, 0, 0, .6);
+        }
+
+        .description {
+            color: $black;
+            margin-top: 10px;
+        }
+    }
+}

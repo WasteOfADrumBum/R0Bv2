@@ -1,0 +1,17 @@
+@import '../../assets/styleSheets/global';
+
+.crud {
+    .crudSnippetBrief {
+        display: grid;
+        grid-gap: 20px;
+        grid-template: auto / max-content auto;
+
+        @include break-at(md) {
+            grid-template: max-content auto / auto;
+
+            &:first-child {
+                text-align: center;
+            }
+        }
+    }
+}

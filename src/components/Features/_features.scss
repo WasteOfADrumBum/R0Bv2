@@ -1,0 +1,32 @@
+@import '../../assets/styleSheets/global';
+
+.features {
+    .mongoDB {
+        color: $mongoDB
+    }
+
+    .express {
+        color: $express
+    }
+
+    .react {
+        color: $react
+    }
+
+    .node {
+        color: $node
+    }
+
+    .mernStack {
+        display: grid;
+        grid-template: auto / auto auto;
+
+        @include break-at(md) {
+            grid-template: auto auto / auto;
+        }
+
+        .mernStackImg {
+            max-width: 420px;
+        }
+    }
+}

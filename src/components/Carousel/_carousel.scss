@@ -1,0 +1,76 @@
+@import '../../assets/styleSheets/global';
+
+.carousel {
+    align-items: center;
+    display: grid;
+    grid-auto-flow: dense;
+    grid-gap: 12px;
+    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+    justify-items: center;
+    margin: auto;
+    max-width: 710px;
+
+    a {
+        background-color: none;
+        border-radius: 50%;
+        box-shadow: 0.1rem 0.2rem 0.4rem $darkGray;
+        cursor: pointer;
+        display: grid;
+        height: 60px;
+        position: relative;
+        text-decoration: none;
+        transition: .25s all ease;
+        width: 60px;
+
+        &:hover {
+            text-decoration: none;
+            transform: scale(.9);
+        }
+    }
+
+    i {
+        align-self: center;
+        font-size: 30px;
+        justify-self: center;
+    }
+
+    .linkedIn {
+        color: $linkedIn;
+    }
+
+    .gitHub {
+        color: $gitHub;
+    }
+
+    .facebook {
+        color: $facebook;
+    }
+
+    .instagram {
+        color: $instagram;
+    }
+
+    .snapChat {
+        color: $snapChat;
+    }
+
+    .steam {
+        color: $steam;
+    }
+
+    .soundCloud {
+        color: $soundCloud;
+    }
+
+    .stackOverflow {
+        color: $stackOverflow;
+    }
+
+    .xBox {
+        color: $xBox;
+    }
+
+    .personalSite {
+        color: $black;
+    }
+}

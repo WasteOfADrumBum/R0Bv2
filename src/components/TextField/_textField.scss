@@ -1,0 +1,16 @@
+@import '../../assets/styleSheets/global';
+
+.textField {
+    width: 100%;
+
+    input {
+        border: 2px solid $black;
+        border-radius: 3px;
+        background-color: $gray;
+        box-sizing: border-box;
+        display: block;
+        margin: 0;
+        width: 100%;
+        padding: 6px;
+    }
+}

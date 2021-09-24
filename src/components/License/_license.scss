@@ -1,0 +1,82 @@
+@import '../../assets/styleSheets/global';
+
+.license {
+    display: grid;
+    grid-template-areas:
+        ' hdr p  l  c  '
+        ' desc p  l  c  '
+    ;
+    grid-template-columns: 50% 1fr 1fr 1fr;
+    grid-gap: 20px;
+
+    @include break-at(md) {
+        grid-template-areas:
+            '. hdr .'
+            '. desc .'
+            '. p .'
+            '. l .'
+            '. c .'
+        ;
+        grid-template-columns: auto;
+    }
+
+    .fa-check {
+        color: $success;
+    }
+
+    .fa-times {
+        color: $failure;
+    }
+
+    .fa-info-circle {
+        color: $info;
+    }
+
+    .licenseHdr {
+        grid-area: hdr;
+        display: grid;
+        grid-template: auto / 60px 1fr;
+        grid-column-gap: 10px;
+
+        .fa-balance-scale {
+            font-size: 3rem;
+        }
+
+        @include break-at(md) {
+            grid-template: 60px 1fr / auto;
+            text-align: center;
+        }
+    }
+
+    .licenseDesc {
+        grid-area: desc;
+
+        @include break-at(md) {
+            text-align: center;
+        }
+    }
+
+    .permissions {
+        grid-area: p;
+
+        @include break-at(md) {
+            text-align: center;
+        }
+    }
+
+    .limitations {
+        grid-area: l;
+
+        @include break-at(md) {
+            text-align: center;
+        }
+    }
+
+    .conditions {
+        grid-area: c;
+
+        @include break-at(md) {
+            text-align: center;
+        }
+    }
+}

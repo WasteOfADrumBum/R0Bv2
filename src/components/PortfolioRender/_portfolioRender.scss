@@ -1,0 +1,15 @@
+@import '../../assets/styleSheets/global';
+
+.portfolioRender {
+    .portfolioSectionHdr {
+        display: grid;
+        grid-template-columns: 40px max-content 1fr;
+        grid-gap: 10px;
+        text-transform: uppercase;
+
+        i {
+            justify-self: center;
+            align-self: center;
+        }
+    }
+}

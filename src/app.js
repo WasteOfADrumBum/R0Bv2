@@ -1,33 +1,48 @@
-import React from "react";
-import { Route, Switch } from "react-router-dom";
-import { useAuth0 } from "@auth0/auth0-react";
-
-import { NavBar, Footer, Loading } from "./components";
-import { Home, Profile, ExternalApi } from "./views";
-import ProtectedRoute from "./auth/protected-route";
-
-import "./app.css";
+import React from 'react'
+import { Route, Switch } from 'react-router-dom'
+import { useAuth0 } from '@auth0/auth0-react'
+// Redux
+import store from './store'
+import { Provider } from 'react-redux'
+import { NavBar, Footer, Loading } from './components'
+import {
+  Home,
+  Profile,
+  ExternalApi,
+  CreatorBio,
+  CRUD,
+  Resume,
+  Portfolio,
+} from './views'
+import ProtectedRoute from './auth/protected-route'
+import './app.css'
 
 const App = () => {
-  const { isLoading } = useAuth0();
+  const { isLoading } = useAuth0()
 
   if (isLoading) {
-    return <Loading />;
+    return <Loading />
   }
 
   return (
-    <div id="app" className="d-flex flex-column h-100">
-      <NavBar />
-      <div className="container flex-grow-1">
-        <Switch>
-          <Route path="/" exact component={Home} />
-          <ProtectedRoute path="/profile" component={Profile} />
-          <ProtectedRoute path="/external-api" component={ExternalApi} />
-        </Switch>
+    <Provider store={store}>
+      <div id="app" className="d-flex flex-column h-100">
+        <NavBar />
+        <div className="container flex-grow-1">
+          <Switch>
+            <Route path="/" exact component={Home} />
+            <Route path="/creator" component={CreatorBio} />
+            <Route path="/portfolio" component={Portfolio} />
+            <ProtectedRoute path="/crud" component={CRUD} />
+            <ProtectedRoute path="/profile" component={Profile} />
+            <ProtectedRoute path="/external-api" component={ExternalApi} />
+            <ProtectedRoute path="/resume" component={Resume} />
+          </Switch>
+        </div>
+        <Footer />
       </div>
-      <Footer />
-    </div>
-  );
-};
+    </Provider>
+  )
+}
 
-export default App;
+export default App

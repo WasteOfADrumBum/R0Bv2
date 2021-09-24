@@ -1,0 +1,88 @@
+@import '../../assets/styleSheets/global';
+
+.cardDeck {
+    display: grid;
+
+    .cards {
+        display: grid;
+        grid-auto-rows: auto;
+        grid-gap: 20px;
+        grid-template: auto / max-content max-content max-content;
+        justify-items: center;
+        justify-self: center;
+
+        @include break-at(lg) {
+            grid-template: max-content max-content max-content / auto;
+        }
+    }
+
+    .card {
+        border: 2px solid $white;
+        border: 1px solid;
+        border-radius: 4px;
+        border-radius: 1rem;
+        box-shadow: 5px 10px 18px $darkGray;
+        padding: .5rem;
+        max-width: 280px;
+
+        @keyframes blinking {
+            0% {
+                color: $white;
+            }
+
+            50% {
+                color: transparent;
+            }
+
+            100% {
+                color: $black;
+            }
+        }
+
+        .card-img-top {
+            margin: auto;
+            max-height: 100px;
+            max-width: 100px;
+        }
+
+        .card-body {
+            display: grid;
+            grid-template: max-content 1fr 1fr max-content / auto;
+
+            button {
+                max-width: max-content;
+                justify-self: center;
+            }
+        }
+
+        .blinking-text {
+            animation: blinking 0.9s infinite;
+            font-size: 20px;
+        }
+
+        &.reactCard {
+            h5 {
+                color: $react;
+            }
+        }
+
+        &.auth0Card {
+            h5 {
+                color: $auth0;
+            }
+        }
+
+        &.bootstrapCard {
+            h5 {
+                color: $bootstrap;
+            }
+        }
+
+        .code {
+            background-color: $black;
+            border-radius: 1rem;
+            color: $white;
+            width: 100%;
+        }
+    }
+}

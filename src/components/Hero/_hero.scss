@@ -1,0 +1,26 @@
+@import '../../assets/styleSheets/global';
+
+.hero {
+    code {
+        color: $black;
+        font-size: #{"max(6vw, 3rem)"};
+        white-space: nowrap;
+    }
+
+    span {
+        -webkit-text-stroke-width: .15rem;
+        -webkit-text-stroke-color: $black;
+
+        &:first-of-type {
+            color: $react;
+        }
+
+        &:nth-of-type(2) {
+            color: $auth0;
+        }
+
+        &:nth-of-type(3) {
+            color: $bootstrap;
+        }
+    }
+}
