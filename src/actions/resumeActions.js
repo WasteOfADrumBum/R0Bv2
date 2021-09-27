@@ -60,6 +60,26 @@ export const readAllEmployment = () => async (dispatch) => {
 // @Desc    Read Employment by ID
 // @Action  readEmployment()
 // @Access  Private
+export const readEmployment = (id) => async (dispatch) => {
+  try {
+    const res = await axios.get(`/api/employment/${id}`)
+    dispatch({
+      type: GET_ONE_EMPLOYMENT,
+      payload: res.data,
+    })
+  } catch (err) {
+    if (err.response.data.errors) {
+      dispatch({
+        payload: { msg: err.response.statusText, status: err.response.status },
+      })
+    }
+
+    dispatch({
+      type: EMPLOYMENT_FAIL,
+      payload: { msg: err.response.statusText, status: err.response.status },
+    })
+  }
+}
 
 // @Route   POST api/employment/create-employment
 // @Desc    Create Employment
@@ -93,15 +113,77 @@ export const createEmployment = (formData) => async (dispatch) => {
   }
 }
 
-// @Route   PUT api/employment
+// @Route   PUT api/employment/update-employment/:id
 // @Desc    Update Employment
 // @Action  updateEmployment()
 // @Access  Private
+export const updateEmployment = (id, formData) => async (dispatch) => {
+  console.log('Action Id: ', id)
+  try {
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    }
+    const res = await axios.post(
+      `/api/employment/update-employment/${id}`,
+      formData,
+      config,
+    )
+    dispatch({
+      type: GET_ONE_EMPLOYMENT,
+      payload: res.data,
+    })
+  } catch (err) {
+    if (err.response.data.errors) {
+      dispatch({
+        payload: {
+          msg: err.response.statusText,
+          status: err.response.status,
+        },
+      })
+    }
 
-// @Route   DELTE api/employment
+    dispatch({
+      type: EMPLOYMENT_FAIL,
+      payload: { msg: err.response.statusText, status: err.response.status },
+    })
+  }
+}
+
+// @Route   DELTE api/employment/delete-employment/:id
 // @Desc    Delete Employment
 // @Action  deleteEmployment()
 // @Access  Private
+export const deleteEmployment = (id) => async (dispatch) => {
+  if (
+    window.confirm(
+      'Are you sure you want to delete this employment? This cannot be undone.',
+    )
+  ) {
+    try {
+      const res = await axios.delete(`/api/employment/delete-employment/${id}`)
+      dispatch({
+        type: DELETE_EMPLOYMENT,
+        payload: res.data,
+      })
+    } catch (err) {
+      if (err.response.data.errors) {
+        dispatch({
+          payload: {
+            msg: err.response.statusText,
+            status: err.response.status,
+          },
+        })
+      }
+
+      dispatch({
+        type: EMPLOYMENT_FAIL,
+        payload: { msg: err.response.statusText, status: err.response.status },
+      })
+    }
+  }
+}
 
 // ----- Education -----
 

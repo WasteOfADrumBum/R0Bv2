@@ -24,13 +24,13 @@ const resumeEmploymentReducer = (
       return {
         ...state,
         allEmployment: payload,
-        loading: false,
+        loading: true,
       }
     case GET_ONE_EMPLOYMENT:
       return {
         ...state,
         employment: payload,
-        loading: false,
+        loading: true,
       }
     case DELETE_EMPLOYMENT:
       return {

@@ -1,0 +1,13 @@
+@import '../../../assets/styleSheets/global';
+
+.updateEmployment {
+
+    form {
+        width: 100%;
+        max-width: 420px;
+    }
+
+    .fa-edit {
+        color: $info;
+    }
+}

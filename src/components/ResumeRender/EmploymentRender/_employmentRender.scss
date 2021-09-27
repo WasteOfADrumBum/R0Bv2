@@ -6,6 +6,7 @@
         display: grid;
         grid-template-columns: 1fr;
 
+
         &:last-of-type {
             border-bottom: none;
         }
@@ -33,6 +34,19 @@
         .description {
             color: $black;
             margin-top: 10px;
+        }
+
+        .authBtns {
+            display: grid;
+            grid-template-columns: max-content max-content;
+            grid-column-gap: 10px;
+            justify-self: end;
+            justify-items: center;
+            align-items: center;
+
+            .fa-trash-alt {
+                color: $failure;
+            }
         }
     }
 }

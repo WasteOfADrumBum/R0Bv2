@@ -1,19 +1,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 import { Carousel } from '../../components'
-import { readAllEmployment } from '../../actions'
 import EmploymentRender from './EmploymentRender'
 import './_resumeRender.scss'
 
-const ResumeRender = ({
-  readAllEmployment,
-  employment: { loading, allEmployment },
-}) => {
-  useEffect(() => {
-    readAllEmployment()
-  }, [])
-
+const ResumeRender = () => {
   return (
     <div className="resumeRender">
       <h2>Joshua M. Small</h2>
@@ -37,14 +29,14 @@ const ResumeRender = ({
         Developer Work Experience
         <hr />
       </h2>
-      <EmploymentRender type={'Dev'} allEmployment={allEmployment} />
+      <EmploymentRender type={'Dev'} />
       <div className="my-3"></div>
       <h2 className="text-left resumeSectionHdr">
         <i className="fas fa-briefcase" />
         Expeloper Work Experience
         <hr />
       </h2>
-      <EmploymentRender type={'Exp'} allEmployment={allEmployment} />
+      <EmploymentRender type={'Exp'} />
       <div className="my-3"></div>
       <h2 className="text-left resumeSectionHdr">
         <i className="fas fa-list" />
@@ -64,9 +56,6 @@ const ResumeRender = ({
   )
 }
 
-const mapStateToProps = (state) => ({
-  resumeEmploymentReducer: state.resumeEmploymentReducer,
-  employment: state.employment,
-})
+const mapStateToProps = (state) => ({})
 
-export default connect(mapStateToProps, { readAllEmployment })(ResumeRender)
+export default connect(mapStateToProps, {})(ResumeRender)
