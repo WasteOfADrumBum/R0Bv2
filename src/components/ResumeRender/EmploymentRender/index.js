@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from 'react'
 import { useAuth0 } from '@auth0/auth0-react'
 import { connect } from 'react-redux'
-import UpdateEmployment from '../../ResumeCMS/UpdateEmployment'
 import { deleteEmployment, readAllEmployment } from '../../../actions'
 import './_employmentRender.scss'
 
@@ -22,13 +21,13 @@ const EmploymentRender = ({
 
     switch (type) {
       case 'Dev':
-        filtered = allEmployment.filter((employment) =>
-          employment.expType.includes('Dev'),
+        filtered = allEmployment.filter(
+          (employment) => employment.expType === 'Dev',
         )
         break
       case 'Exp':
-        filtered = allEmployment.filter((employment) =>
-          employment.expType.includes('Exp'),
+        filtered = allEmployment.filter(
+          (employment) => employment.expType === 'Exp',
         )
         break
       default:
@@ -51,7 +50,6 @@ const EmploymentRender = ({
     }
   }, [employment_loading])
 
-  console.log('employment_loading', employment_loading)
   return (
     <>
       {!employment_loading ? (
@@ -121,7 +119,9 @@ const EmploymentRender = ({
                   )}
                   {email && email === 'jmsmall89@gmail.com' && (
                     <div className="authBtns my-2">
-                      <UpdateEmployment id={employment._id} />
+                      <a href={`/employment/${employment._id}/update`}>
+                        <i className="far fa-edit" type="button" />
+                      </a>
                       <i
                         className="far fa-trash-alt"
                         onClick={() => onDelete(employment._id)}

@@ -5,9 +5,6 @@ import { ResumeCMS, ResumeRender } from '../../components'
 const Resume = () => {
   const { isAuthenticated } = useAuth0()
 
-  if (isAuthenticated) {
-  }
-
   return (
     <>
       <h2 className="text-center">Resume</h2>

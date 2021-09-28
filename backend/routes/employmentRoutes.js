@@ -90,8 +90,6 @@ router.post('/create-employment', async (req, res) => {
 // @Action  updateEmployment()
 // @Access  Private
 router.post('/update-employment/:id', async (req, res) => {
-  console.log('Route Id: ', req.params.id)
-  console.log(req.body)
   const {
     title,
     employmentType,
@@ -118,7 +116,15 @@ router.post('/update-employment/:id', async (req, res) => {
   if (expType) newEmployeer.expType = expType
 
   try {
-    let employment = await employmentModel.findOneAndUpdate(
+    let employment = await employmentModel.findById(req.params.id)
+    // Check if it exsists
+    if (!employment) {
+      return res.status(400).json({
+        errors: [{ msg: 'Employment does not exist' }],
+      })
+    }
+
+    employment = await employmentModel.findOneAndUpdate(
       {
         _id: req.params.id,
       },
@@ -126,9 +132,8 @@ router.post('/update-employment/:id', async (req, res) => {
       { new: true },
     )
     res.json(employment)
-    res.status(200).send('Success')
   } catch (err) {
-    console.error(err.message)
+    console.error('updateEmployment Route: ', err.message)
     res.status(500).send('Server Error')
   }
 })

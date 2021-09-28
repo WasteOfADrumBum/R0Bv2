@@ -7,6 +7,7 @@ import axios from 'axios'
 // ----- Employment -----
 export const GET_ALL_EMPLOYMENT = 'GET_ALL_EMPLOYMENT'
 export const GET_ONE_EMPLOYMENT = 'GET_ONE_EMPLOYMENT'
+export const UPDATE_EMPLOYMENT = 'UPDATE_EMPLOYMENT'
 export const DELETE_EMPLOYMENT = 'ELETE_EMPLOYMENT'
 export const RESET_EMPLOYMENT = 'RESET_EMPLOYMENT'
 export const EMPLOYMENT_LOADING = 'EMPLOYMENT_LOADING '
@@ -61,6 +62,7 @@ export const readAllEmployment = () => async (dispatch) => {
 // @Action  readEmployment()
 // @Access  Private
 export const readEmployment = (id) => async (dispatch) => {
+  dispatch({ type: RESET_EMPLOYMENT })
   try {
     const res = await axios.get(`/api/employment/${id}`)
     dispatch({
@@ -118,7 +120,6 @@ export const createEmployment = (formData) => async (dispatch) => {
 // @Action  updateEmployment()
 // @Access  Private
 export const updateEmployment = (id, formData) => async (dispatch) => {
-  console.log('Action Id: ', id)
   try {
     const config = {
       headers: {
@@ -131,19 +132,11 @@ export const updateEmployment = (id, formData) => async (dispatch) => {
       config,
     )
     dispatch({
-      type: GET_ONE_EMPLOYMENT,
+      type: UPDATE_EMPLOYMENT,
       payload: res.data,
     })
   } catch (err) {
-    if (err.response.data.errors) {
-      dispatch({
-        payload: {
-          msg: err.response.statusText,
-          status: err.response.status,
-        },
-      })
-    }
-
+    console.log(err)
     dispatch({
       type: EMPLOYMENT_FAIL,
       payload: { msg: err.response.statusText, status: err.response.status },
@@ -182,6 +175,31 @@ export const deleteEmployment = (id) => async (dispatch) => {
         payload: { msg: err.response.statusText, status: err.response.status },
       })
     }
+  }
+}
+
+// @Desc    reset Employment
+// @Action  resetEmployment()
+// @Access  Private
+export const resetEmployment = () => async (dispatch) => {
+  try {
+    dispatch({
+      type: RESET_EMPLOYMENT,
+    })
+  } catch (err) {
+    if (err.response.data.errors) {
+      dispatch({
+        payload: {
+          msg: err.response.statusText,
+          status: err.response.status,
+        },
+      })
+    }
+
+    dispatch({
+      type: EMPLOYMENT_FAIL,
+      payload: { msg: err.response.statusText, status: err.response.status },
+    })
   }
 }
 

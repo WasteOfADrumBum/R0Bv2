@@ -1,10 +1,12 @@
 @import '../../../assets/styleSheets/global';
 
 .updateEmployment {
+    display: grid;
 
     form {
         width: 100%;
         max-width: 420px;
+        justify-self: center;
     }
 
     .fa-edit {

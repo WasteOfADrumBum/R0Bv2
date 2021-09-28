@@ -13,6 +13,11 @@
         form {
             width: 100%;
             max-width: 420px;
+
+            .btn {
+                // Prevents buttons from being ontop of dropdown selectors
+                z-index: 0;
+            }
         }
     }
 }

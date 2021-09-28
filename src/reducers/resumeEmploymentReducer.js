@@ -1,6 +1,7 @@
 import {
   GET_ALL_EMPLOYMENT,
   GET_ONE_EMPLOYMENT,
+  UPDATE_EMPLOYMENT,
   DELETE_EMPLOYMENT,
   RESET_EMPLOYMENT,
   EMPLOYMENT_LOADING,
@@ -27,6 +28,12 @@ const resumeEmploymentReducer = (
         loading: true,
       }
     case GET_ONE_EMPLOYMENT:
+      return {
+        ...state,
+        employment: payload,
+        loading: true,
+      }
+    case UPDATE_EMPLOYMENT:
       return {
         ...state,
         employment: payload,

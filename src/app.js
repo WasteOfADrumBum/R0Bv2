@@ -13,6 +13,7 @@ import {
   CRUD,
   Resume,
   Portfolio,
+  UpdateEmploymentView,
 } from './views'
 import ProtectedRoute from './auth/protected-route'
 import './app.css'
@@ -37,6 +38,10 @@ const App = () => {
             <ProtectedRoute path="/profile" component={Profile} />
             <ProtectedRoute path="/external-api" component={ExternalApi} />
             <ProtectedRoute path="/resume" component={Resume} />
+            <ProtectedRoute
+              path="/employment/:id/update"
+              component={UpdateEmploymentView}
+            />
           </Switch>
         </div>
         <Footer />
