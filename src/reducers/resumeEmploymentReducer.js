@@ -43,7 +43,7 @@ const resumeEmploymentReducer = (
       return {
         ...state,
         allEmployment: payload,
-        loading: false,
+        loading: true,
       }
     case RESET_EMPLOYMENT:
       return {

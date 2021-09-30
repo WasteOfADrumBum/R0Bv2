@@ -21,14 +21,14 @@ const EmploymentRender = ({
 
     switch (type) {
       case 'Dev':
-        filtered = allEmployment.filter(
-          (employment) => employment.expType === 'Dev',
-        )
+        filtered = allEmployment
+          .filter((employment) => employment.expType === 'Dev')
+          .sort((employment) => employment.startDate.split(' '))
         break
       case 'Exp':
-        filtered = allEmployment.filter(
-          (employment) => employment.expType === 'Exp',
-        )
+        filtered = allEmployment
+          .filter((employment) => employment.expType === 'Exp')
+          .sort()
         break
       default:
         filtered = []
@@ -45,7 +45,7 @@ const EmploymentRender = ({
   }, [])
 
   useEffect(() => {
-    if (allEmployment.length > 0) {
+    if (allEmployment && allEmployment.length > 0) {
       filterType(type)
     }
   }, [employment_loading])

@@ -161,15 +161,7 @@ export const deleteEmployment = (id) => async (dispatch) => {
         payload: res.data,
       })
     } catch (err) {
-      if (err.response.data.errors) {
-        dispatch({
-          payload: {
-            msg: err.response.statusText,
-            status: err.response.status,
-          },
-        })
-      }
-
+      console.log(err)
       dispatch({
         type: EMPLOYMENT_FAIL,
         payload: { msg: err.response.statusText, status: err.response.status },

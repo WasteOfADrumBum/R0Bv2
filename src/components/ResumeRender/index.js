@@ -30,10 +30,13 @@ const ResumeRender = () => {
         <hr />
       </h2>
       <EmploymentRender type={'Dev'} />
+      <p className="mx-4">
+        Click <a href="/portfolio">here</a> to view my portfolio of projects.
+      </p>
       <div className="my-3"></div>
       <h2 className="text-left resumeSectionHdr">
         <i className="fas fa-briefcase" />
-        Expeloper Work Experience
+        Non-Developer Work Experience
         <hr />
       </h2>
       <EmploymentRender type={'Exp'} />

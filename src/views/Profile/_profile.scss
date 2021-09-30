@@ -1,0 +1,28 @@
+@import '../../assets/styleSheets/global';
+
+.profile {
+    display: grid;
+    grid-gap: 10px;
+
+    .profilePicture {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .hdr {
+        grid-column: 2;
+        grid-row: 1;
+        justify-self: end;
+
+        .email {
+            .verified {
+                color: $success;
+                font-size: .7rem;
+            }
+        }
+    }
+
+    .infoDump {
+        grid-column: 1 / span 2;
+    }
+}

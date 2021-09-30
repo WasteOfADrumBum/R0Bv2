@@ -1,30 +1,33 @@
 import React from 'react'
 import { useAuth0 } from '@auth0/auth0-react'
+import './_profile.scss'
 
 const Profile = () => {
   const { user } = useAuth0()
-  const { name, picture, email } = user
+  const { name, picture, email, email_verified } = user
 
   return (
-    <div>
-      <div className="row align-items-center profile-header">
-        <div className="col-md-2 mb-3">
-          <img
-            src={picture}
-            alt="Profile"
-            className="rounded-circle img-fluid profile-picture mb-3 mb-md-0"
-          />
-        </div>
-        <div className="col-md text-center text-md-left">
-          <h2>{name}</h2>
-          <p className="lead text-muted">{email}</p>
-        </div>
+    <div className="profile">
+      <img
+        src={picture}
+        alt="Profile"
+        className="profilePicture rounded-circle img-fluid mb-3 mb-md-0"
+      />
+      <div className="hdr">
+        <h2 className="name">{name}</h2>
+        <p className="email lead text-muted">
+          {email}
+          {email_verified && (
+            <sup className="verified p-1">
+              <i className="far fa-check-square"></i>
+            </sup>
+          )}
+        </p>
       </div>
-      <div className="row">
-        <pre className="col-12 text-light bg-dark p-4">
-          {JSON.stringify(user, null, 2)}
-        </pre>
-      </div>
+
+      <pre className="infoDump col-12 text-light bg-dark p-4 my-4">
+        {JSON.stringify(user, null, 2)}
+      </pre>
     </div>
   )
 }
