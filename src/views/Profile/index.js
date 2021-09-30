@@ -17,10 +17,14 @@ const Profile = () => {
         <h2 className="name">{name}</h2>
         <p className="email lead text-muted">
           {email}
-          {email_verified && (
+          {email_verified ? (
             <sup className="verified p-1">
               <i className="far fa-check-square"></i>
             </sup>
+          ) : (
+            <p className="unverified text-end">
+              Please Verify Your Email Address
+            </p>
           )}
         </p>
       </div>

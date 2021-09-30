@@ -19,6 +19,12 @@
                 color: $success;
                 font-size: .7rem;
             }
+
+            .unverified {
+                color: $failure;
+                font-size: .7rem;
+                text-transform: uppercase;
+            }
         }
     }
 
