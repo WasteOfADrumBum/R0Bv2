@@ -8,6 +8,7 @@ const Auth0ProviderWithHistory = ({ children }) => {
   const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID
   const audience = process.env.REACT_APP_AUTH0_AUDIENCE
 
+  // handle the event where Auth0 redirects users from the Auth0 Login page to App
   const onRedirectCallback = (appState) => {
     history.push(appState?.returnTo || window.location.pathname)
   }
@@ -19,6 +20,7 @@ const Auth0ProviderWithHistory = ({ children }) => {
       redirectUri={window.location.origin}
       onRedirectCallback={onRedirectCallback}
       audience={audience}
+      cacheLocation="localstorage"
     >
       {children}
     </Auth0Provider>

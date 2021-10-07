@@ -19,11 +19,10 @@
     .card {
         border: 2px solid $white;
         border: 1px solid;
-        border-radius: 4px;
-        border-radius: 1rem;
+        border-radius: 16px;
         box-shadow: 5px 10px 18px $darkGray;
-        padding: .5rem;
         max-width: 280px;
+        padding: .5rem;
 
         @keyframes blinking {
             0% {
@@ -50,8 +49,8 @@
             grid-template: max-content 1fr 1fr max-content / auto;
 
             button {
-                max-width: max-content;
                 justify-self: center;
+                max-width: max-content;
             }
         }
 

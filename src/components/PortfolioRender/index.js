@@ -1,11 +1,13 @@
 import React from 'react'
+import PortfolioCards from './PortfolioCards'
 import './_portfolioRender.scss'
 
 const PortfolioRender = () => {
   return (
     <>
-      <h2>Portfolio Content</h2>
-      <div>Content</div>
+      <div className="portfolioRender my-4">
+        <PortfolioCards />
+      </div>
     </>
   )
 }

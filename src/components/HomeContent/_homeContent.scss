@@ -3,12 +3,12 @@
 .homeContent {
     .javascriptContainer {
         display: grid;
-        grid-template: auto / 1fr 1fr 1fr;
         grid-gap: 10px;
+        grid-template: auto / 1fr 1fr 1fr;
 
         @include break-at(md) {
-            grid-template: 1fr max-content max-content / auto;
             grid-gap: 30px;
+            grid-template: 1fr max-content max-content / auto;
 
             .javascriptImg {
                 grid-row: 1;

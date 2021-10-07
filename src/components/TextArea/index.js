@@ -24,7 +24,11 @@ const TextArea = ({
         className={className || ''}
         disabled={disabled}
       />
-      {info && <small className="info">{info}</small>}
+      {info && (
+        <small className="info">
+          <i>{info}</i>
+        </small>
+      )}
     </div>
   )
 }

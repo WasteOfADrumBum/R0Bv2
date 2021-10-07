@@ -3,6 +3,9 @@ import { connect } from 'react-redux'
 import { TextField, TextArea, SelectListOption } from '../../../components'
 import { createEmployment } from '../../../actions'
 import { USAStates } from '../../../utils'
+// Date picker
+import DatePicker from 'react-datepicker'
+import 'react-datepicker/dist/react-datepicker.css'
 
 const CreateEmployment = ({ createEmployment }) => {
   const [formData, setFormData] = useState({
@@ -51,6 +54,17 @@ const CreateEmployment = ({ createEmployment }) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
+  // Captures changes made to the start date
+  const onChangeStartDate = (e) => {
+    console.log(e)
+    setFormData({ ...formData, startDate: e })
+  }
+
+  // Captures changes made to the end date
+  const onChangeEndDate = (e) => {
+    setFormData({ ...formData, endDate: e })
+  }
+
   const onSubmit = (e) => {
     e.preventDefault()
 
@@ -62,8 +76,8 @@ const CreateEmployment = ({ createEmployment }) => {
       company: company.trim(),
       locationCity: locationCity.trim(),
       locationState: locationState,
-      startDate: startDate.trim(),
-      endDate: endDate.trim(),
+      startDate: startDate,
+      endDate: endDate,
       description: description.trim(),
       expType: expType,
     }
@@ -127,18 +141,41 @@ const CreateEmployment = ({ createEmployment }) => {
             onChange={(e) => onChange(e)}
             options={USAStates}
           />
-          <TextField
-            placeholder="Start Date"
-            name="startDate"
-            value={startDate}
-            onChange={(e) => onChange(e)}
-          />
-          <TextField
-            placeholder="End Date"
-            name="endDate"
-            value={endDate}
-            onChange={(e) => onChange(e)}
-          />
+          <div className="datePicker">
+            <div className="w-100 pe-1">
+              <DatePicker
+                isClearable
+                showYearDropdown
+                filterDate={(d) => {
+                  return new Date() > d
+                }}
+                placeholderText="Select Start Date"
+                dateFormat="MMMM yyyy"
+                selected={startDate}
+                selectsStart
+                startDate={startDate}
+                endDate={endDate}
+                onChange={(e) => onChangeStartDate(e)}
+              />
+            </div>
+            <div className="w-100 ps-1">
+              <DatePicker
+                isClearable
+                showYearDropdown
+                filterDate={(d) => {
+                  return new Date() > d
+                }}
+                placeholderText="Select End Date"
+                dateFormat="MMMM yyyy"
+                selected={endDate}
+                selectsEnd
+                startDate={startDate}
+                endDate={endDate}
+                minDate={startDate}
+                onChange={(e) => onChangeEndDate(e)}
+              />
+            </div>
+          </div>
           <TextArea
             placeholder="Description"
             name="description"

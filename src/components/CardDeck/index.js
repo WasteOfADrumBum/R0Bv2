@@ -27,7 +27,7 @@ const CardDeck = () => {
               A component-based JavaScript library for building user interfaces
             </p>
             <p className="card-text code text-left p-2">
-              npm install react-bootstrap bootstrap
+              npm install react
               <span className="blinking-text">|</span>
             </p>
             <button
@@ -52,7 +52,7 @@ const CardDeck = () => {
               Authentication and authorization platform
             </p>
             <p className="card-text code text-left p-2">
-              npm install --save auth0-js react-router react-router-dom
+              npm install --save auth0-js
               <span className="blinking-text">|</span>
             </p>
             <button
@@ -78,7 +78,7 @@ const CardDeck = () => {
               mobile-first websites
             </p>
             <p className="card-text code text-left p-2">
-              npm install react-bootstrap bootstrap
+              npm install bootstrap
               <span className="blinking-text">|</span>
             </p>
             <button

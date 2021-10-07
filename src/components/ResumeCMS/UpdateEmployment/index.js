@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react'
+import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import {
   TextField,
@@ -10,9 +11,10 @@ import {
 import { updateEmployment, readEmployment } from '../../../actions'
 import { USAStates } from '../../../utils'
 import './_updateEmployment.scss'
-import { useParams } from 'react-router'
 
 const UpdateEmployment = ({
+  history,
+  match,
   updateEmployment,
   readEmployment,
   employment: { loading: employment_loading, employment },
@@ -30,8 +32,7 @@ const UpdateEmployment = ({
   })
 
   // Get ID from URL
-  const params = useParams()
-  const id = params.id
+  const id = match.params.id
 
   useEffect(() => {
     // Find Employment by ID
@@ -40,9 +41,7 @@ const UpdateEmployment = ({
 
   // Set formData if it exisits
   useEffect(() => {
-    console.log('Set formData if it exisits')
     if (employment_loading && employment !== null) {
-      console.log('it exisits')
       setFormData({
         title: !employment.title ? '' : employment.title,
         employmentType: !employment.employmentType
@@ -129,6 +128,9 @@ const UpdateEmployment = ({
       description: '',
       expType: '',
     })
+
+    // Redirect to CV
+    history.push('/resume')
   }
 
   return (
@@ -230,4 +232,4 @@ const mapStateToProps = (state) => ({
 export default connect(mapStateToProps, {
   updateEmployment,
   readEmployment,
-})(UpdateEmployment)
+})(withRouter(UpdateEmployment))

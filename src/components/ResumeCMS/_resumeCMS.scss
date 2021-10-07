@@ -20,4 +20,30 @@
             }
         }
     }
+
+    .datePicker {
+        display: flex;
+
+        .react-datepicker-wrapper,
+        .react-datepicker__input-container,
+        .react-datepicker__input-container input {
+            width: 100%;
+        }
+
+        .react-datepicker__close-icon::before,
+        .react-datepicker__close-icon::after {
+            background-color: grey;
+        }
+
+        input {
+            border: 2px solid $black;
+            border-radius: 3px;
+            background-color: $gray;
+            box-sizing: border-box;
+            display: block;
+            margin: 0;
+            width: 100%;
+            padding: 6px;
+        }
+    }
 }

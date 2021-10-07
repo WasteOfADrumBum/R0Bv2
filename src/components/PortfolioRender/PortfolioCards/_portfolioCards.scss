@@ -1,0 +1,30 @@
+@import '../../../assets/styleSheets/global';
+
+.portfolioCards {
+    align-items: flex-start;
+    display: grid;
+    grid-gap: .5rem;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+
+    .card {
+        align-self: start;
+        border: 2px solid $white;
+        border: 1px solid;
+        border-radius: 16px;
+        box-shadow: 5px 10px 18px $darkGray;
+        justify-self: center;
+        max-width: 280px;
+
+        .imgWrapper {
+            border-radius: 16px 16px 0 0;
+            box-shadow: 0 0 8px $darkGray;
+            max-height: 156.38px;
+            overflow: hidden;
+            width: 100%;
+
+            img {
+                border-radius: 16px 16px 0 0;
+            }
+        }
+    }
+}

@@ -1,11 +1,21 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { TextArea } from '../../../components'
+import './_creatSkills.scss'
 
 const CreateSkills = () => {
   const [formData, setFormData] = useState({
-    skilss: '',
+    skillsList: '',
   })
-  const { skills } = formData
+  const { skillsList } = formData
+
+  // Set formData if it exisits
+  /* useEffect(() => {
+    if (skills_loading && skills !== null) {
+      setFormData({
+        title: !skillsList ? '' : skillsList,
+      })
+    }
+  }, [skills_loading]) */
 
   // Captures changes made to the form data
   const onChange = (e) => {
@@ -18,7 +28,7 @@ const CreateSkills = () => {
     // Trim white space off input's
     let trimFormData = {
       ...formData,
-      skills: skills.trim(),
+      skillsList: skillsList.trim(),
     }
 
     // send trimmed formData to the API
@@ -32,9 +42,10 @@ const CreateSkills = () => {
         <form noValidate onSubmit={(e) => onSubmit(e)}>
           <TextArea
             placeholder="Skills"
-            name="skills"
-            value={skills}
+            name="skillsList"
+            value={skillsList}
             onChange={(e) => onChange(e)}
+            info="Use a comma ( , ) to seperate skills"
           />
           <button type="submit" className="btn btn-primary">
             Add Skills

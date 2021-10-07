@@ -1,7 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react'
+import { withRouter } from 'react-router-dom'
 import { useAuth0 } from '@auth0/auth0-react'
 import { connect } from 'react-redux'
+import moment from 'moment'
 import { deleteEmployment, readAllEmployment } from '../../../actions'
 import './_employmentRender.scss'
 
@@ -48,7 +50,7 @@ const EmploymentRender = ({
     if (allEmployment && allEmployment.length > 0) {
       filterType(type)
     }
-  }, [employment_loading])
+  }, [employment_loading, allEmployment])
 
   return (
     <>
@@ -86,12 +88,14 @@ const EmploymentRender = ({
                     <div>
                       {employment.startDate && (
                         <span className="startDate">
-                          {employment.startDate}
+                          {moment(employment.startDate).format('MMMM YYYY')}
                         </span>
                       )}
-                      {employment.startDate && employment.endDate && <> - </>}
+                      <> - </>
                       {employment.endDate ? (
-                        <span className="endDate">{employment.endDate}</span>
+                        <span className="endDate">
+                          {moment(employment.endDate).format('MMMM YYYY')}
+                        </span>
                       ) : (
                         <span className="startDate">Current</span>
                       )}
@@ -145,4 +149,4 @@ const mapStateToProps = (state) => ({
 export default connect(mapStateToProps, {
   deleteEmployment,
   readAllEmployment,
-})(EmploymentRender)
+})(withRouter(EmploymentRender))
