@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import moment from 'moment'
@@ -11,16 +11,33 @@ const PortfolioCards = ({
   readPortfolio,
   portfolio: { portfolio, loading: portfolio_loading },
 }) => {
+  const [sortedData, setSortedData] = useState([])
+  let sortedProjects = []
+
   // load Redux
   useEffect(() => {
     readPortfolio()
   }, [])
 
+  useEffect(() => {
+    if (portfolio && portfolio.length > 0) {
+      sortedPortfolio()
+    }
+  }, [portfolio_loading, portfolio])
+
+  // Sort by Start Date
+  const sortedPortfolio = () => {
+    sortedProjects = portfolio
+      .sort((project) => project.startDate.split(' '))
+      .reverse()
+    setSortedData(sortedProjects)
+  }
+
   // Card Render
   const Card = () => {
     return (
       <>
-        {portfolio.map((project, i) => {
+        {sortedData.map((project, i) => {
           return (
             <div className="card" key={`${project} + ${i}`}>
               <div className="imgWrapper">
@@ -73,7 +90,7 @@ const PortfolioCards = ({
                     href={`https://${project.linkUrl}`}
                     target="_blank"
                     rel="noreferrer"
-                    className="btn btn-outline-primary btn-sm"
+                    className="btn btn-outline-primary btn-sm my-3"
                   >
                     View
                   </a>
