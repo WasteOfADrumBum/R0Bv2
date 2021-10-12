@@ -69,8 +69,6 @@ export const readProject = (id) => async (dispatch) => {
 // @Action  createPortfolio()
 // @Access  Private
 export const createPortfolio = (formData) => async (dispatch) => {
-  console.log('POST api/portfolio/create-portfolio (Action)')
-
   try {
     const config = {
       headers: {

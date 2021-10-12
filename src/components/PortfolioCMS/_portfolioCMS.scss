@@ -1,0 +1,38 @@
+@import '../../assets/styleSheets/global';
+
+.portfolioCMS {
+    display: grid;
+
+    form {
+        justify-self: center;
+        max-width: 420px;
+        width: 100%;
+
+        .datePicker {
+            display: flex;
+
+            .react-datepicker-wrapper,
+            .react-datepicker__input-container,
+            .react-datepicker__input-container input {
+                width: 100%;
+            }
+
+            .react-datepicker__close-icon::before,
+            .react-datepicker__close-icon::after {
+                background-color: grey;
+            }
+
+            input {
+                background-color: $gray;
+                border: 2px solid $black;
+                border-radius: 3px;
+                box-sizing: border-box;
+                display: block;
+                margin: 0;
+                padding: 6px;
+                width: 100%;
+            }
+        }
+    }
+
+}

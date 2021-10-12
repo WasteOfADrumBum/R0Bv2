@@ -16,8 +16,6 @@ const PortfolioCards = ({
     readPortfolio()
   }, [])
 
-  // Map Data
-
   // Card Render
   const Card = () => {
     return (
@@ -72,7 +70,9 @@ const PortfolioCards = ({
                 </p>
                 {project.linkUrl && (
                   <a
-                    href="www.google.com"
+                    href={`https://${project.linkUrl}`}
+                    target="_blank"
+                    rel="noreferrer"
                     className="btn btn-outline-primary btn-sm"
                   >
                     View

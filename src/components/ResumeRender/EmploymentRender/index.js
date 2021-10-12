@@ -26,11 +26,13 @@ const EmploymentRender = ({
         filtered = allEmployment
           .filter((employment) => employment.expType === 'Dev')
           .sort((employment) => employment.startDate.split(' '))
+          .reverse()
         break
       case 'Exp':
         filtered = allEmployment
           .filter((employment) => employment.expType === 'Exp')
-          .sort()
+          .sort((employment) => employment.startDate.split(' '))
+          .reverse()
         break
       default:
         filtered = []

@@ -56,7 +56,6 @@ const CreateEmployment = ({ createEmployment }) => {
 
   // Captures changes made to the start date
   const onChangeStartDate = (e) => {
-    console.log(e)
     setFormData({ ...formData, startDate: e })
   }
 
@@ -83,7 +82,6 @@ const CreateEmployment = ({ createEmployment }) => {
     }
 
     // send trimmed formData to the API
-    console.log(trimFormData)
     createEmployment(trimFormData)
 
     // clear formData
