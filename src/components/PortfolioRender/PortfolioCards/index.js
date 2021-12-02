@@ -25,10 +25,14 @@ const PortfolioCards = ({
     }
   }, [portfolio_loading, portfolio])
 
-  // Sort by Start Date
+  // Sort by most recent Start Date
   const sortedPortfolio = () => {
     sortedProjects = portfolio
-      .sort((project) => project.startDate.split(' '))
+      .sort(function (a, b) {
+        var c = new Date(a.startDate)
+        var d = new Date(b.startDate)
+        return c - d
+      })
       .reverse()
     setSortedData(sortedProjects)
   }

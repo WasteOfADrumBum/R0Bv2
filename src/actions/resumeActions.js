@@ -24,6 +24,7 @@ export const EDUCATION_SUCCESS = 'EDUCATION_SUCCESS'
 // ----- Skills -----
 export const GET_ALL_SKILLS = 'GET_ALL_SKILLS'
 export const GET_ONE_SKILLS = 'GET_ONE_SKILLS'
+export const UPDATE_SKILLS = 'UPDATE_SKILLS'
 export const DELETE_SKILLS = 'DELETE_SKILLS'
 export const RESET_SKILLS = 'RESET_SKILLS'
 export const SKILLS_LOADING = 'SKILLS_LOADING'
@@ -226,23 +227,115 @@ export const resetEmployment = () => async (dispatch) => {
 
 // @Route   Post api/skills
 // @Desc    Create Skills
-// @Action  createSkills()
+// @Action  createSkillsList()
 // @Access  Private
+export const createSkillsList = (formData) => async (dispatch) => {
+  try {
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    }
+    await axios
+      .post('/api/skills/create-skills', formData, config)
+      .then((res) => console.log(res.data))
+    dispatch({
+      type: SKILLS_SUCCESS,
+      payload: { msg: formData, status: 'success' },
+    })
+  } catch (err) {
+    if (err.response.data.errors) {
+      dispatch({
+        payload: { msg: err.response.statusText, status: err.response.status },
+      })
+    }
+
+    dispatch({
+      type: SKILLS_FAIL,
+      payload: { msg: err.response.statusText, status: err.response.status },
+    })
+  }
+}
 
 // @Route   GET api/skills
 // @Desc    Read All Skills
 // @Action  readAllSkills()
 // @Access  Private
+export const readAllSkills = () => async (dispatch) => {
+  try {
+    const res = await axios.get('/api/skills')
+    dispatch({
+      type: GET_ALL_SKILLS,
+      payload: res.data,
+    })
+  } catch (err) {
+    if (err.response.data.errors) {
+      dispatch({
+        payload: { msg: err.response.statusText, status: err.response.status },
+      })
+    }
+
+    dispatch({
+      type: SKILLS_FAIL,
+      payload: { msg: err.response.statusText, status: err.response.status },
+    })
+  }
+}
 
 // @Route   GET api/skills/:id
 // @Desc    Read Skills by ID
 // @Action  readSkills()
 // @Access  Private
+export const readSkills = (id) => async (dispatch) => {
+  dispatch({ type: RESET_SKILLS })
+  try {
+    const res = await axios.get(`/api/skills/${id}`)
+    dispatch({
+      type: GET_ONE_SKILLS,
+      payload: res.data,
+    })
+  } catch (err) {
+    if (err.response.data.errors) {
+      dispatch({
+        payload: { msg: err.response.statusText, status: err.response.status },
+      })
+    }
+
+    dispatch({
+      type: SKILLS_FAIL,
+      payload: { msg: err.response.statusText, status: err.response.status },
+    })
+  }
+}
 
 // @Route   Post api/skills
 // @Desc    Update Skills
 // @Action  updateSkills()
 // @Access  Private
+export const updateSkills = (id, formData) => async (dispatch) => {
+  try {
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    }
+    const res = await axios.post(
+      `/api/skills/update-skills/${id}`,
+      formData,
+      config,
+    )
+    dispatch({
+      type: UPDATE_SKILLS,
+      payload: res.data,
+    })
+  } catch (err) {
+    console.log(err)
+    dispatch({
+      type: SKILLS_FAIL,
+      payload: { msg: err.response.statusText, status: err.response.status },
+    })
+  }
+}
 
 // @Route   Post api/skills/:id
 // @Desc    Delete Skills by ID

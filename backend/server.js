@@ -20,6 +20,7 @@ mongoose
 // API Routes
 app.use('/api/employment', require('./routes/employmentRoutes'))
 app.use('/api/portfolio', require('./routes/portfolioRoutes'))
+app.use('/api/skills', require('./routes/skillsRoutes'))
 
 app.get('/', (req, res) => res.send('Server is up and running'))
 

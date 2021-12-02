@@ -14,7 +14,7 @@ const Carousel = () => {
         <i className="fab fa-facebook-f" />
       </a>
       <a
-        href="https://www.instagram.com/lost.between.thoughts/?hl=en"
+        href="https://www.instagram.com/one_small_family/"
         className="instagram"
       >
         <i className="fab fa-instagram" />

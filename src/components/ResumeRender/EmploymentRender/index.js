@@ -25,19 +25,27 @@ const EmploymentRender = ({
       case 'Dev':
         filtered = allEmployment
           .filter((employment) => employment.expType === 'Dev')
-          .sort((employment) => employment.startDate.split(' '))
-          .reverse()
+          .sort((employment) => employment.endDate.split(' '))
         break
       case 'Exp':
         filtered = allEmployment
           .filter((employment) => employment.expType === 'Exp')
-          .sort((employment) => employment.startDate.split(' '))
+          .sort((employment) => employment.endDate.split(' '))
           .reverse()
         break
       default:
         filtered = []
     }
     setFilteredData(filtered)
+  }
+
+  // Determine if EndDate is a string or date
+  const endDateType = (date) => {
+    if (date === 'Current') {
+      return 'Current'
+    } else {
+      return moment(new Date(date)).format('MMMM YYYY')
+    }
   }
 
   const onDelete = (id) => {
@@ -96,7 +104,7 @@ const EmploymentRender = ({
                       <> - </>
                       {employment.endDate ? (
                         <span className="endDate">
-                          {moment(employment.endDate).format('MMMM YYYY')}
+                          {endDateType(employment.endDate)}
                         </span>
                       ) : (
                         <span className="startDate">Current</span>

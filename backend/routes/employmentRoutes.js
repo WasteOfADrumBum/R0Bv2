@@ -78,6 +78,7 @@ router.post('/create-employment', async (req, res) => {
   try {
     let employment = new employmentModel(newEmployeer)
     await employment.save()
+    console.log(employment)
     res.status(200).send('Success')
   } catch (err) {
     console.error(err.message)

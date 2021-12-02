@@ -1,6 +1,7 @@
 import {
   GET_ALL_SKILLS,
   GET_ONE_SKILLS,
+  UPDATE_SKILLS,
   DELETE_SKILLS,
   RESET_SKILLS,
   SKILLS_LOADING,
@@ -24,19 +25,25 @@ const resumeSkillsReducer = (
       return {
         ...state,
         allSkills: payload,
-        loading: false,
+        loading: true,
       }
     case GET_ONE_SKILLS:
       return {
         ...state,
         skills: payload,
-        loading: false,
+        loading: true,
+      }
+    case UPDATE_SKILLS:
+      return {
+        ...state,
+        skills: payload,
+        loading: true,
       }
     case DELETE_SKILLS:
       return {
         ...state,
         allSkills: payload,
-        loading: false,
+        loading: true,
       }
     case RESET_SKILLS:
       return {
@@ -62,7 +69,9 @@ const resumeSkillsReducer = (
     case SKILLS_SUCCESS:
       return {
         ...state,
-        success: payload,
+        skills: payload,
+        allSkills: [payload, ...state.allSkills],
+        loading: false,
       }
     default:
       return state

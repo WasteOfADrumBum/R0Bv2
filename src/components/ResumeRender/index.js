@@ -3,6 +3,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Carousel } from '../../components'
 import EmploymentRender from './EmploymentRender'
+import SkillsRender from './SkillsRender'
 import './_resumeRender.scss'
 
 const ResumeRender = () => {
@@ -46,6 +47,7 @@ const ResumeRender = () => {
         Skills
         <hr />
       </h2>
+      <SkillsRender />
       <div className="my-3"></div>
       <h2 className="text-left resumeSectionHdr">
         <i className="fab fa-linkedin-in" />
