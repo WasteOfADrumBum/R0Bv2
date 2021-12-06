@@ -8,14 +8,13 @@ export { default as PortfolioRender } from './PortfolioRender'
 export { default as PortfolioCMS } from './PortfolioCMS'
 export { default as ResumeRender } from './ResumeRender'
 export { default as ResumeCMS } from './ResumeCMS'
+export { default as ReactCountryFlagComponent } from './ReactCountryFlag'
 // ----- Buttons -----
 export { default as AuthBtn } from './AuthBtn'
 export { default as LoginBtn } from './LoginBtn'
 export { default as SignupBtn } from './SignupBtn'
 export { default as LogoutBtn } from './LogoutBtn'
 // ----- Menus -----
-export { default as AuthNav } from './AuthNav'
-export { default as MainNav } from './MainNav'
 export { default as NavBar } from './NavBar'
 // ----- Default Page Components -----
 export { default as Hero } from './Hero'

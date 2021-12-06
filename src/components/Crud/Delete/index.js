@@ -45,8 +45,6 @@ export default class DeleteTodo extends Component {
   }
 
   render() {
-    console.log(this.props.match.params.id);
-    console.log(this.state);
     return (
       <div>
         <h3 align="center">Confirm Delete</h3>

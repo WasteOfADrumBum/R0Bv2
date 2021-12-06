@@ -1,5 +1,7 @@
 import React from 'react'
 import CodeSnippets from './CrudSnippets/index.js'
+import CrudInput from './Input/index.js'
+import CrudDisplay from './Display/index.js'
 import './_crud.scss'
 
 const Crud = () => {
@@ -38,7 +40,9 @@ const Crud = () => {
       <CodeSnippets />
       <br />
       {/* CDN */}
-      {/* Customer Facing */}
+      <CrudInput />
+      {/* List */}
+      <CrudDisplay />
     </div>
   )
 }

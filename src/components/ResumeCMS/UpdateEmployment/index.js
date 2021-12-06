@@ -113,7 +113,6 @@ const UpdateEmployment = ({
     }
 
     // send trimmed formData to the API
-    console.log(trimFormData)
     updateEmployment(id, trimFormData)
 
     // clear formData

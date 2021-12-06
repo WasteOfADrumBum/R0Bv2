@@ -1,0 +1,17 @@
+@import '../../assets/styleSheets/global';
+
+.navbar {
+    #mainNavBar {
+        .react {
+            color: $react;
+        }
+
+        .auth0 {
+            color: $auth0;
+        }
+
+        .bootstrap {
+            color: $bootstrap;
+        }
+    }
+}

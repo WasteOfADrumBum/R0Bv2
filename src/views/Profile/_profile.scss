@@ -4,17 +4,33 @@
     display: grid;
     grid-gap: 10px;
 
-    .profilePicture {
-        grid-column: 1;
-        grid-row: 1;
-    }
-
     .hdr {
-        grid-column: 2;
+        display: grid;
+        grid-column: 1 / span 2;
         grid-row: 1;
-        justify-self: end;
+        justify-self: start;
+        grid-gap: 10px;
+
+        .profilePicture {
+            grid-column: 1;
+            grid-row: 1 / span 2;
+        }
+
+        .name {
+            grid-column: 2 / span 2;
+            grid-row: 1;
+            align-self: end;
+        }
+
+        .location {
+            grid-column: 3;
+            grid-row: 2;
+        }
 
         .email {
+            grid-column: 2;
+            grid-row: 2;
+
             .verified {
                 color: $success;
                 font-size: .7rem;
@@ -28,7 +44,30 @@
         }
     }
 
-    .infoDump {
+    .phoneImg {
         grid-column: 1 / span 2;
+        grid-row: 2;
+        z-index: 1;
+        align-self: center;
+        justify-self: center;
+    }
+
+    .infoDumpWrap {
+        grid-column: 1 / span 2;
+        grid-row: 2;
+        z-index: 2;
+        display: grid;
+        grid-template: 1fr 2fr 1fr / 1fr 3fr 1fr;
+
+        .infoDump {
+            font-size: 1.3vw;
+            white-space: break-spaces;
+            grid-column: 2;
+            grid-row: 2;
+            /* Hide scrollbars */
+            overflow: hidden;
+            align-self: center;
+            justify-self: start;
+        }
     }
 }

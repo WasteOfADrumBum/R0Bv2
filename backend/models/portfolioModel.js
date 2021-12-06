@@ -17,7 +17,7 @@ const PortfolioSchema = new Schema({
     required: true,
   },
   endDate: {
-    type: Date,
+    type: Schema.Types.Mixed,
     required: false,
   },
   description: {

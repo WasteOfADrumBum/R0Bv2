@@ -49,7 +49,6 @@ router.get('/:id', async (req, res) => {
 // @Action  createEmployment()
 // @Access  Private
 router.post('/create-employment', async (req, res) => {
-  console.log(req.body)
   const {
     title,
     employmentType,
@@ -78,7 +77,6 @@ router.post('/create-employment', async (req, res) => {
   try {
     let employment = new employmentModel(newEmployeer)
     await employment.save()
-    console.log(employment)
     res.status(200).send('Success')
   } catch (err) {
     console.error(err.message)

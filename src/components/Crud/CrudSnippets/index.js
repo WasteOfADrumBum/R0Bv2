@@ -1,4 +1,5 @@
 import React from 'react'
+import ModelSnippet from './Model'
 import CreateSnippet from './Create'
 import ReadSnippet from './Read'
 import UpdateSnippet from './Update'
@@ -31,6 +32,7 @@ const CrudSnippets = () => {
         </div>
       </div>
       <div>
+        <ModelSnippet />
         <CreateSnippet />
         <ReadSnippet />
         <UpdateSnippet />

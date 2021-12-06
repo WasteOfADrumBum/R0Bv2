@@ -47,7 +47,6 @@ const CreateSkills = ({
 
     // send trimmed formData to the API
     updateSkills(id, trimFormData)
-    console.log(trimFormData)
   }
 
   return (

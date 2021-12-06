@@ -6,7 +6,7 @@ import './_toggleSwtich.scss'
 Toggle Switch Component
 Note: id, checked and onChange are required for ToggleSwitch component to function. The props name, small, disabled
 and optionLabels are optional.
-Usage: <ToggleSwitch id="id" checked={value} onChange={checked => setValue(checked)}} />
+Usage: <ToggleSwitch id="id" checked={value} onChange={checked => setValue(checked)} />
 */
 
 const ToggleSwitch = ({

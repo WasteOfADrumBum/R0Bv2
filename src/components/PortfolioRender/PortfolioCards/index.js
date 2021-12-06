@@ -41,75 +41,85 @@ const PortfolioCards = ({
   const Card = () => {
     return (
       <>
-        {sortedData.map((project, i) => {
-          return (
-            <div className="card" key={`${project} + ${i}`}>
-              <div className="imgWrapper">
-                {project.imgSrc ? (
-                  <img
-                    src={`assets/images/portfolio/${project.imgSrc}`}
-                    className="card-img-top"
-                    alt="project_image"
-                  />
-                ) : (
-                  <img
-                    src="https://via.placeholder.com/300x169"
-                    className="card-img-top"
-                    alt="placeholder"
-                  />
-                )}
-              </div>
-              <div className="card-body">
-                <h5 className="card-title">
-                  {project.title ? <>{project.title}</> : <>Untitled Project</>}
-                </h5>
-                <i className="card-text">
-                  {(project.startDate || project.endDate) && (
-                    <div>
-                      {project.startDate && (
-                        <span className="startDate">
-                          {moment(project.startDate).format('MMMM YYYY')}
-                        </span>
-                      )}
-                      <> - </>
-                      {project.endDate ? (
-                        <span className="endDate">
-                          {moment(project.endDate).format('MMMM YYYY')}
-                        </span>
+        {!portfolio_loading ? (
+          <p>Loading...</p>
+        ) : (
+          <>
+            {sortedData.map((project, i) => {
+              return (
+                <div className="card" key={`${project} + ${i}`}>
+                  <div className="imgWrapper">
+                    {project.imgSrc ? (
+                      <img
+                        src={`assets/images/portfolio/${project.imgSrc}`}
+                        className="card-img-top"
+                        alt="project_image"
+                      />
+                    ) : (
+                      <img
+                        src="https://via.placeholder.com/300x169"
+                        className="card-img-top"
+                        alt="placeholder"
+                      />
+                    )}
+                  </div>
+                  <div className="card-body">
+                    <h5 className="card-title">
+                      {project.title ? (
+                        <>{project.title}</>
                       ) : (
-                        <span className="startDate">Current</span>
+                        <>Untitled Project</>
                       )}
-                    </div>
-                  )}
-                </i>
-                <h6 className="card-subtitle mb-2 text-muted">
-                  {project.position && <>{project.position}</>}
-                </h6>
-                <hr />
-                <p className="card-text">
-                  {project.description && <>{project.description}</>}
-                </p>
-                {project.linkUrl && (
-                  <a
-                    href={`https://${project.linkUrl}`}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="btn btn-outline-primary btn-sm my-3"
-                  >
-                    View
-                  </a>
-                )}
-              </div>
-              <div className="card-footer text-muted">
-                {project.skills && (
-                  <>
-                    <b>Skills:</b> {project.skills}
-                  </>
-                )}
-              </div>
-            </div>
-          )
-        })}
+                    </h5>
+                    <i className="card-text">
+                      {(project.startDate || project.endDate) && (
+                        <div>
+                          {project.startDate && (
+                            <span className="startDate">
+                              {moment(project.startDate).format('MMMM YYYY')}
+                            </span>
+                          )}
+                          <> - </>
+                          {project.endDate ? (
+                            <span className="endDate">
+                              {moment(project.endDate).format('MMMM YYYY')}
+                            </span>
+                          ) : (
+                            <span className="startDate">Current</span>
+                          )}
+                        </div>
+                      )}
+                    </i>
+                    <h6 className="card-subtitle mb-2 text-muted">
+                      {project.position && <>{project.position}</>}
+                    </h6>
+                    <hr />
+                    <p className="card-text">
+                      {project.description && <>{project.description}</>}
+                    </p>
+                    {project.linkUrl && (
+                      <a
+                        href={`https://${project.linkUrl}`}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="btn btn-outline-primary btn-sm my-3"
+                      >
+                        View
+                      </a>
+                    )}
+                  </div>
+                  <div className="card-footer text-muted">
+                    {project.skills && (
+                      <>
+                        <b>Skills:</b> {project.skills}
+                      </>
+                    )}
+                  </div>
+                </div>
+              )
+            })}
+          </>
+        )}
       </>
     )
   }
@@ -117,6 +127,8 @@ const PortfolioCards = ({
   /* const onDelete = (id) => {
     deletePortfolio(id)
   } */
+
+  console.log('portfolio_loading: ', portfolio_loading)
 
   return (
     <>

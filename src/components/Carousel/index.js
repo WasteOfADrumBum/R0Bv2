@@ -31,6 +31,9 @@ const Carousel = () => {
       >
         <i className="fab fa-steam-symbol" />
       </a>
+      <a href="https://open.spotify.com/user/1224180199" className="spotify">
+        <i className="fab fa-spotify" />
+      </a>
       <a href="https://soundcloud.com/wasteofadrumbum" className="soundCloud">
         <i className="fab fa-soundcloud" />
       </a>

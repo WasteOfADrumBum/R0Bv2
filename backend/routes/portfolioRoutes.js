@@ -48,8 +48,6 @@ router.get('/:id', async (req, res) => {
 // @Action  createPortfolio()
 // @Access  Private
 router.post('/create-portfolio', async (req, res) => {
-  console.log('POST api/portfolio/create-portfolio (Route)')
-  console.log(req.body)
   const {
     title,
     position,

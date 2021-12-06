@@ -49,7 +49,6 @@ router.get('/:id', async (req, res) => {
 // @Action  createSkills()
 // @Access  Private
 router.post('/create-skills', async (req, res) => {
-  console.log(req.body)
   const { skillsList } = req.body
 
   const newSkill = {}
