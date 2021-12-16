@@ -9,6 +9,7 @@ export { default as PortfolioCMS } from './PortfolioCMS'
 export { default as ResumeRender } from './ResumeRender'
 export { default as ResumeCMS } from './ResumeCMS'
 export { default as ReactCountryFlagComponent } from './ReactCountryFlag'
+export { default as SaveFile } from './SaveFile'
 // ----- Buttons -----
 export { default as AuthBtn } from './AuthBtn'
 export { default as LoginBtn } from './LoginBtn'

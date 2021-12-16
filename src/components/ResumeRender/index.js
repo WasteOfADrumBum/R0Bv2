@@ -1,10 +1,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React from 'react'
 import { connect } from 'react-redux'
-import { Carousel } from '../../components'
+import { Carousel, SaveFile } from '../../components'
 import EmploymentRender from './EmploymentRender'
 import SkillsRender from './SkillsRender'
 import './_resumeRender.scss'
+import pdf from '../../assets/pdfs/resume/JMS-2022-CL&CV-A.pdf'
 
 const ResumeRender = () => {
   return (
@@ -19,6 +20,9 @@ const ResumeRender = () => {
         mobile-first design and development. Excelling in organization,
         creativity, and teamwork.
       </p>
+      <div className="text-end">
+        <SaveFile url={pdf} label="Download CV" />
+      </div>
       <h2 className="text-left resumeSectionHdr">
         <i className="fas fa-user-graduate" />
         Education

@@ -128,8 +128,6 @@ const PortfolioCards = ({
     deletePortfolio(id)
   } */
 
-  console.log('portfolio_loading: ', portfolio_loading)
-
   return (
     <>
       {!portfolio_loading ? (

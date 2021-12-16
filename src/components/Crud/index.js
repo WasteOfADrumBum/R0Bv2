@@ -21,13 +21,41 @@ const Crud = () => {
         they lose power.
       </p>
       <i>© Sumo Logic</i>
-      <div className="crudSnippetBrief my-5">
-        <img
-          src="/assets/images/crud.png"
-          className="img-fluid m-auto"
-          alt="..."
-        />
-        <div className="m-auto">
+      <div className="crudSnippetBrief row my-5">
+        <div className="col-md-6 p-5">
+          <div className="d-grid fs-1 text-center text-info">
+            <div className="g-col-3">
+              <i className="bi bi-pencil" />
+            </div>
+            <div className="g-col-3">
+              <i className="bi bi-book" />
+            </div>
+            <div className="g-col-3">
+              <i className="bi bi-arrow-clockwise" />
+            </div>
+            <div className="g-col-3">
+              <i className="bi bi-trash" />
+            </div>
+          </div>
+          <div className="d-grid text-uppercase text-center">
+            <div className="g-col-3">Create</div>
+            <div className="g-col-3">Read</div>
+            <div className="g-col-3">Update</div>
+            <div className="g-col-3">Delete</div>
+          </div>
+          <div className="d-grid">
+            <div className="g-col-12">
+              <hr className="text-info w-100 border border-2 border-info opacity-100" />
+            </div>
+          </div>
+          <div className="d-grid fs-1 fw-bolder text-uppercase text-center">
+            <div className="g-col-3">C</div>
+            <div className="g-col-3">R</div>
+            <div className="g-col-3">U</div>
+            <div className="g-col-3">D</div>
+          </div>
+        </div>
+        <div className="col-md-6 m-auto">
           <p>
             This CRUD example's data base is being hosted by MongoDB. Try out
             the demo below and see how easy it is to <i>create</i> a new task,

@@ -1,3 +1,22 @@
 @import '../../../assets/styleSheets/global';
 
-.crudDisplay {}
+.crudDisplay {
+    .crudEntry:nth-child(even) {
+        background: #f0f4f4
+    }
+
+    .crudEntry:nth-child(odd) {
+        background: #e4f6fd
+    }
+
+    .mdBreakpoint {
+        text-align: start;
+    }
+
+    // Medium devices (tablets, 768px and up)
+    @media (min-width: 768px) {
+        .mdBreakpoint {
+            text-align: center;
+        }
+    }
+}
