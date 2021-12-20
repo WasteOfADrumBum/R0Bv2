@@ -1,0 +1,45 @@
+@import '../../../assets/styleSheets/global';
+
+.demo2Container {
+    .demo2 {
+        .demo2Box {
+            margin: 10px;
+            padding: 0.5rem;
+            width: 120px;
+            height: 120px;
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-weight: 600;
+            color: $white;
+
+            &.box-1 {
+                background-color: $purple;
+            }
+
+            &.box-2 {
+                background-color: $blue;
+            }
+
+            &.box-3 {
+                background-color: $ruby;
+            }
+        }
+    }
+
+    .demo2Desc {
+        .purple {
+            color: $purple
+        }
+
+        .blue {
+            color: $blue
+        }
+
+        .ruby {
+            color: $ruby
+        }
+    }
+}

@@ -78,6 +78,40 @@ const BootstrapSnippets = () => {
         everywhere. Below are examples of code I'm using in this project in an
         easy to read format.
       </p>
+      <div className="row">
+        <div className="col-md-6 p-1">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">
+                <i className="bi bi-hand-thumbs-up me-2" />
+                Pros:
+              </h5>
+              <p class="card-text">
+                <ul>
+                  <li>Mobile first, responsive web design framework</li>
+                  <li>Good community support and documentation</li>
+                </ul>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="col-md-6 p-1">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">
+                <i className="bi bi-hand-thumbs-down me-2" />
+                Cons:
+              </h5>
+              <p class="card-text">
+                <ul>
+                  <li>Large dependency size (~ 300KB)</li>
+                  <li>Dependency on jQuery for some components to work</li>
+                </ul>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
       <div className="accordion my-4" id="bootstrapAccordion">
         <div className="accordion-item">
           <h2 className="accordion-header" id="headingFour">

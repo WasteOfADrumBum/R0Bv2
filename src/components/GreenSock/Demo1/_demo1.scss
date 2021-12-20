@@ -1,0 +1,28 @@
+@import '../../../assets/styleSheets/global';
+
+.demo1Container {
+    grid-template-columns: 2fr 3fr;
+
+    .demo1 {
+        width: max-content;
+
+        .demo1Box {
+            width: 100px;
+            height: 100px;
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background-color: $greenSock;
+            font-weight: 600;
+            color: $white;
+
+            .gsapLogo {
+                width: 50px;
+            }
+        }
+    }
+
+    .demo1Desc {}
+}

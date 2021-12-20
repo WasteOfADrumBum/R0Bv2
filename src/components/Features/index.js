@@ -67,7 +67,7 @@ const Features = () => {
             validations.
           </div>
         </div>
-        <div className="pb-3 text-left row">
+        {/* <div className="pb-3 text-left row">
           <div className="col">
             <b>TypeScript</b>, as described on its official website, is a
             superset of JavaScript that compiles down to plain JavaScript. It
@@ -76,7 +76,7 @@ const Features = () => {
             features that ensure the successful development of awesome
             applications with fewer bugs.
           </div>
-        </div>
+        </div> */}
         <div className="pb-3 text-left row">
           <div className="col">
             <b>Express:</b> Express is a fast and lightweight web framework for

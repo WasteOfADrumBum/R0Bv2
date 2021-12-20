@@ -1,0 +1,115 @@
+@import '../../assets/styleSheets/global';
+
+.grapes {
+
+    .grapesHdr {
+        grid-template-columns: max-content max-content;
+        align-items: center;
+        width: max-content;
+        background: $grapes;
+
+        img {
+            height: 2.2rem;
+            min-width: 2.2rem;
+            margin-right: 0.8rem;
+            vertical-align: top;
+        }
+    }
+
+    .pinkGrapes {
+        color: $grapes;
+    }
+
+    .installGrapes {
+        justify-content: center;
+        grid-template-columns: 250px;
+        align-items: center;
+        grid-gap: 10px;
+
+        .installNPM {
+            grid-row: 3;
+            width: max-content;
+
+            .blinkingText {
+                animation: blinking 0.9s infinite;
+                font-size: 20px;
+            }
+        }
+    }
+
+    #gjs {
+        border: 3px solid $gold;
+    }
+
+    .gjs-one-bg {
+        background-color: $grapes;
+    }
+
+    /* Secondary color for the text color */
+    .gjs-two-color {
+        color: $black;
+    }
+
+    /* Tertiary color for the background */
+    .gjs-three-bg {
+        background-color: $black;
+        color: $white;
+    }
+
+    /* Quaternary color for the text color */
+    .gjs-four-color,
+    .gjs-four-color-h:hover {
+        color: $black;
+    }
+
+    .gjs-cv-canvas {
+        top: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .gjs-block {
+        width: auto;
+        height: auto;
+        min-height: auto;
+    }
+
+    .panel__top {
+        padding: 0;
+        width: 100%;
+        display: flex;
+        position: initial;
+        justify-content: center;
+        justify-content: space-between;
+    }
+
+    .panel__basic-actions {
+        position: initial;
+    }
+
+    .editor-row {
+        display: flex;
+        justify-content: flex-start;
+        align-items: stretch;
+        flex-wrap: nowrap;
+        height: 300px;
+    }
+
+    .editor-canvas {
+        flex-grow: 1;
+    }
+
+    .panel__right {
+        flex-basis: 180px;
+        position: relative;
+        overflow-y: auto;
+    }
+
+    .panel__switcher {
+        position: initial;
+    }
+
+    .panel__devices {
+        position: initial;
+    }
+}

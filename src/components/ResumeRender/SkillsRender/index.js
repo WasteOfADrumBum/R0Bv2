@@ -1,6 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from 'react'
-import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { readAllSkills } from '../../../actions'
 import './_skillsRender.scss'
@@ -18,7 +17,7 @@ const SkillsRender = ({
       {!skills_loading ? (
         <p>Loading...</p>
       ) : (
-        <div className="skillsRender ms-4 me-4">
+        <div className="skillsRender mx-4">
           {allSkills && allSkills.length > 0 && <>{allSkills[0].skills}</>}
         </div>
       )}
@@ -33,4 +32,4 @@ const mapStateToProps = (state) => ({
 
 export default connect(mapStateToProps, {
   readAllSkills,
-})(withRouter(SkillsRender))
+})(SkillsRender)

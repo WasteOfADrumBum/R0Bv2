@@ -1,0 +1,54 @@
+@import '../../../assets/styleSheets/global';
+
+.educationRender {
+    .education {
+        border-bottom: 1px solid $label;
+        display: grid;
+        grid-template-columns: 1fr;
+
+
+        &:last-of-type {
+            border-bottom: none;
+        }
+
+        .school {
+            color: $black;
+            font-size: 1.3rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .degree,
+        .fieldOfStudy {
+            color: $black;
+            font-weight: 500;
+        }
+
+        .startDate,
+        .endDate,
+        .locationCity,
+        .locationState {
+            color: rgba(0, 0, 0, .6);
+        }
+
+        .description {
+            color: $black;
+            margin-top: 10px;
+            word-break: break-word;
+            white-space: break-spaces;
+        }
+
+        .authBtns {
+            display: grid;
+            grid-template-columns: max-content max-content;
+            grid-column-gap: 10px;
+            justify-self: end;
+            justify-items: center;
+            align-items: center;
+
+            .fa-trash-alt {
+                color: $failure;
+            }
+        }
+    }
+}

@@ -37,12 +37,12 @@ const Profile = () => {
         </p>
       </div>
 
-      <img
-        src="./assets/images/laptop.png"
-        alt="phone"
-        className="phoneImg img-fluid p-0 m-0"
-      />
       <div className="infoDumpWrap">
+        <img
+          src="./assets/images/laptop.png"
+          alt="phone"
+          className="phoneImg img-fluid p-0 m-0"
+        />
         <pre className="infoDump col-12">{JSON.stringify(user, null, 2)}</pre>
       </div>
     </div>

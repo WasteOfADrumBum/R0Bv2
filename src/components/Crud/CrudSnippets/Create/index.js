@@ -2,41 +2,56 @@ import React from 'react'
 import { CopyBlock, a11yLight } from 'react-code-blocks'
 
 const CreateSnippet = () => {
-  const createCodeUXUI = ``
-  const createCodeRoutes = `// @Route   POST api/crud/create-crud
-// @Desc    Create CRUD
-// @Action  createCRUD()
-// @Access  Private
-router.post('/create-crud', async (req, res) => {
-  const {
-    firstName,
-    lastName,
-    usastreet,
-    usacity,
-    usaState,
-    usaZip,
-    question,
-  } = req.body
+  const createCodeUXUI = `import React, { useState } from 'react'
+import { connect } from 'react-redux'
+import { TextField, SelectListOption, ToggleSwitch } from '../../../components'
+import { createCrud } from '../../../actions'
+import { USAStates } from '../../../utils'
+import './_input.scss'
 
-  const newEntry = {}
-  if (firstName) newEntry.firstName = firstName
-  if (lastName) newEntry.lastName = lastName
-  if (usastreet) newEntry.usastreet = usastreet
-  if (usacity) newEntry.usacity = usacity
-  if (usaState) newEntry.usaState = usaState
-  if (usaZip) newEntry.usaZip = usaZip
-  if (question) newEntry.question = question
+const CrudInput = ({ createCrud }) => {
+  const [formData, setFormData] = useState({ firstName: '', lastName: '', usaStreet: '', usaCity: '', usaState: '', usaZip: '', question: false })
+  const { firstName, lastName, usaStreet, usaCity, usaState, usaZip, question } = formData
 
-  try {
-    let crud = new crudModel(newEntry)
-    await crud.save()
-    res.status(200).send('Success')
-  } catch (err) {
-    console.error(err.message)
-    res.status(500).send('Server Error')
+  // Captures changes made to the form data
+  const onChange = (e) => { setFormData({ ...formData, [e.target.name]: e.target.value }) }
+
+  const onToggle = (question) => { setFormData({ ...formData, question: question }) }
+
+  const onSubmit = (e) => {
+    e.preventDefault()
+
+    // Trim white space off input's
+    let trimFormData = {
+      ...formData,
+      firstName: firstName.trim(),
+      lastName: lastName.trim(),
+      usaStreet: usaStreet.trim(),
+      usaCity: usaCity.trim(),
+      usaState: usaState,
+      usaZip: usaZip.trim(),
+      question: question,
+    }
+
+    // send trimmed formData to the API
+    createCrud(trimFormData)
+
+    // clear formData
+    setFormData({ firstName: '', lastName: '', usaStreet: '', usaCity: '', usaState: '', usaZip: '', question: false })
   }
-})`
-  const createCodeActions = `const express = require('express')
+
+  return (<>Form Rendered Here</>)
+}
+
+const mapStateToProps = (state) => ({
+  crudReducer: state.crudReducer,
+})
+
+export default connect(mapStateToProps, {
+  createCrud,
+})(CrudInput)`
+
+  const createCodeRoutes = `const express = require('express')
 const router = express.Router()
 
 // load Model
@@ -47,15 +62,7 @@ const crudModel = require('../models/crudModel')
 // @Action  createCRUD()
 // @Access  Private
 router.post('/create-crud', async (req, res) => {
-  const {
-    firstName,
-    lastName,
-    usaStreet,
-    usaCity,
-    usaState,
-    usaZip,
-    question,
-  } = req.body
+  const { firstName, lastName, usaStreet, usaCity, usaState, usaZip, question } = req.body
 
   const newEntry = {
     name: {
@@ -80,6 +87,44 @@ router.post('/create-crud', async (req, res) => {
     res.status(500).send('Server Error')
   }
 })`
+
+  const createCodeActions = `import axios from 'axios'
+
+export const CRUD_FAIL = 'CRUD_FAIL'
+export const CRUD_SUCCESS = 'CRUD_SUCCESS'
+
+// @Route   POST api/crud/create-crud
+// @Desc    Create Crud
+// @Action  createCrud()
+// @Access  Private
+export const createCrud = (formData) => async (dispatch) => {
+  try {
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    }
+    await axios
+      .post('/api/crud/create-crud', formData, config)
+      .then((res) => console.log(res.data))
+    dispatch({
+      type: CRUD_SUCCESS,
+      payload: { msg: formData, status: 'success' },
+    })
+  } catch (err) {
+    if (err.response.data.errors) {
+      dispatch({
+        payload: { msg: err.response.statusText, status: err.response.status },
+      })
+    }
+
+    dispatch({
+      type: CRUD_FAIL,
+      payload: { msg: err.response.statusText, status: err.response.status },
+    })
+  }
+}`
+
   const createCodeReducer = `import {
   CRUD_FAIL,
   CRUD_SUCCESS,
@@ -135,7 +180,7 @@ export default crudReducer
         <div className="accordion-item">
           <h2 className="accordion-header" id="headingCreateUXUI">
             <button
-              className="accordion-button"
+              className="accordion-button collapsed"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#collapseCreateUXUI"
@@ -147,7 +192,7 @@ export default crudReducer
           </h2>
           <div
             id="collapseCreateUXUI"
-            className="accordion-collapse collapse show"
+            className="accordion-collapse collapse"
             aria-labelledby="headingCreateUXIUI"
             data-bs-parent="#createAccordion"
           >

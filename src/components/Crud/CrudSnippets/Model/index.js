@@ -42,7 +42,7 @@ module.exports = mongoose.model('CRUD', CRUDSchema)`
         <div className="accordion-item">
           <h2 className="accordion-header" id="headingModel">
             <button
-              className="accordion-button"
+              className="accordion-button collapsed"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#collapseModel"
@@ -54,7 +54,7 @@ module.exports = mongoose.model('CRUD', CRUDSchema)`
           </h2>
           <div
             id="collapseModel"
-            className="accordion-collapse collapse show"
+            className="accordion-collapse collapse"
             aria-labelledby="headingModel"
             data-bs-parent="#modelAccordion"
           >

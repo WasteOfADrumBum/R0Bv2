@@ -19,6 +19,7 @@ mongoose
 
 // API Routes
 app.use('/api/employment', require('./routes/employmentRoutes'))
+app.use('/api/education', require('./routes/educationRoutes'))
 app.use('/api/portfolio', require('./routes/portfolioRoutes'))
 app.use('/api/skills', require('./routes/skillsRoutes'))
 app.use('/api/crud', require('./routes/crudRoutes'))

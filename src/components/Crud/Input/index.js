@@ -28,8 +28,7 @@ const CrudInput = ({ createCrud }) => {
 
   // Captures changes made to the form data
   const onChange = (e) => {
-    // Trim white space off input's
-    setFormData({ ...formData, [e.target.name]: e.target.value.trim() })
+    setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
   const onToggle = (question) => {
@@ -39,8 +38,20 @@ const CrudInput = ({ createCrud }) => {
   const onSubmit = (e) => {
     e.preventDefault()
 
+    // Trim white space off input's
+    let trimFormData = {
+      ...formData,
+      firstName: firstName.trim(),
+      lastName: lastName.trim(),
+      usaStreet: usaStreet.trim(),
+      usaCity: usaCity.trim(),
+      usaState: usaState,
+      usaZip: usaZip.trim(),
+      question: question,
+    }
+
     // send trimmed formData to the API
-    createCrud(formData)
+    createCrud(trimFormData)
 
     // clear formData
     setFormData({

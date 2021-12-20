@@ -1,7 +1,12 @@
 import React, { useState } from 'react'
+import { connect } from 'react-redux'
 import { TextField, TextArea } from '../../../components'
+import { createEducation } from '../../../actions'
+// Date picker
+import DatePicker from 'react-datepicker'
+import 'react-datepicker/dist/react-datepicker.css'
 
-const CreateEducation = () => {
+const CreateEducation = ({ createEducation }) => {
   const [formData, setFormData] = useState({
     school: '',
     degree: '',
@@ -24,6 +29,16 @@ const CreateEducation = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
+  // Captures changes made to the start date
+  const onChangeStartDate = (e) => {
+    setFormData({ ...formData, startDate: e })
+  }
+
+  // Captures changes made to the end date
+  const onChangeEndDate = (e) => {
+    setFormData({ ...formData, endDate: e })
+  }
+
   const onSubmit = (e) => {
     e.preventDefault()
 
@@ -33,13 +48,13 @@ const CreateEducation = () => {
       school: school.trim(),
       degree: degree.trim(),
       fieldOfStudy: fieldOfStudy.trim(),
-      startDate: startDate.trim(),
-      endDate: endDate.trim(),
+      startDate: startDate,
+      endDate: endDate,
       description: description.trim(),
     }
 
     // send trimmed formData to the API
-    console.log(trimFormData)
+    createEducation(trimFormData)
 
     // clear formData
     setFormData({
@@ -75,18 +90,41 @@ const CreateEducation = () => {
             value={fieldOfStudy}
             onChange={(e) => onChange(e)}
           />
-          <TextField
-            placeholder="Start Date"
-            name="startDate"
-            value={startDate}
-            onChange={(e) => onChange(e)}
-          />
-          <TextField
-            placeholder="End Date"
-            name="endDate"
-            value={endDate}
-            onChange={(e) => onChange(e)}
-          />
+          <div className="datePicker">
+            <div className="w-100 pe-1">
+              <DatePicker
+                isClearable
+                showYearDropdown
+                filterDate={(d) => {
+                  return new Date() > d
+                }}
+                placeholderText="Select Start Date"
+                dateFormat="MMMM yyyy"
+                selected={startDate}
+                selectsStart
+                startDate={startDate}
+                endDate={endDate}
+                onChange={(e) => onChangeStartDate(e)}
+              />
+            </div>
+            <div className="w-100 ps-1">
+              <DatePicker
+                isClearable
+                showYearDropdown
+                filterDate={(d) => {
+                  return new Date() > d
+                }}
+                placeholderText="Select End Date"
+                dateFormat="MMMM yyyy"
+                selected={endDate}
+                selectsEnd
+                startDate={startDate}
+                endDate={endDate}
+                minDate={startDate}
+                onChange={(e) => onChangeEndDate(e)}
+              />
+            </div>
+          </div>
           <TextArea
             placeholder="Description"
             name="description"
@@ -102,4 +140,10 @@ const CreateEducation = () => {
   )
 }
 
-export default CreateEducation
+const mapStateToProps = (state) => ({
+  resumeEducationReducer: state.resumeEducationReducer,
+})
+
+export default connect(mapStateToProps, {
+  createEducation,
+})(CreateEducation)

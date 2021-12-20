@@ -1,6 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react'
-import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import moment from 'moment'
 import { deletePortfolio, readPortfolio } from '../../../actions'
@@ -149,4 +148,4 @@ const mapStateToProps = (state) => ({
 export default connect(mapStateToProps, {
   deletePortfolio,
   readPortfolio,
-})(withRouter(PortfolioCards))
+})(PortfolioCards)

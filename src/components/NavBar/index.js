@@ -40,6 +40,16 @@ const NavBar = () => {
             </li>
             <li className="nav-item">
               <NavLink
+                to="/uxui"
+                exact
+                className="nav-link"
+                activeClassName="router-link-exact-active"
+              >
+                UX/UI
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
                 to="/creator"
                 exact
                 className="nav-link"

@@ -24,19 +24,19 @@ const crudReducer = (
       return {
         ...state,
         allCrud: payload,
-        loading: false,
+        loading: true,
       }
     case GET_ONE_CRUD:
       return {
         ...state,
         crud: payload,
-        loading: false,
+        loading: true,
       }
     case DELETE_CRUD:
       return {
         ...state,
         allCrud: payload,
-        loading: false,
+        loading: true,
       }
     case RESET_CRUD:
       return {
@@ -63,6 +63,7 @@ const crudReducer = (
       return {
         ...state,
         success: payload,
+        allCrud: [payload, ...state.allCrud],
         loading: false,
       }
     default:

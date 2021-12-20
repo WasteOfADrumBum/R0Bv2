@@ -1,6 +1,7 @@
 import {
   GET_ALL_EDUCATION,
   GET_ONE_EDUCATION,
+  UPDATE_EDUCATION,
   DELETE_EDUCATION,
   RESET_EDUCATION,
   EDUCATION_LOADING,
@@ -31,6 +32,12 @@ const resumeEducationReducer = (
         ...state,
         education: payload,
         loading: false,
+      }
+    case UPDATE_EDUCATION:
+      return {
+        ...state,
+        education: payload,
+        loading: true,
       }
     case DELETE_EDUCATION:
       return {

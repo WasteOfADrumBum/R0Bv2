@@ -4,7 +4,7 @@ import axios from 'axios'
 export const GET_ALL_CRUD = 'GET_ALL_CRUD'
 export const GET_ONE_CRUD = 'GET_ONE_CRUD'
 export const UPDATE_CRUD = 'UPDATE_CRUD'
-export const DELETE_CRUD = 'ELETE_CRUD'
+export const DELETE_CRUD = 'DELETE_CRUD'
 export const RESET_CRUD = 'RESET_CRUD'
 export const CRUD_LOADING = 'CRUD_LOADING '
 export const CRUD_FAIL = 'CRUD_FAIL'
@@ -17,7 +17,7 @@ export const CRUD_SUCCESS = 'CRUD_SUCCESS'
 // @Action  readAllCrud()
 // @Access  Private
 export const readAllCrud = () => async (dispatch) => {
-  dispatch({ type: CRUD_LOADING })
+  //dispatch({ type: CRUD_LOADING })
   try {
     const res = await axios.get('/api/crud')
     dispatch({
@@ -155,6 +155,8 @@ export const deleteCrud = (id) => async (dispatch) => {
 // @Action  resetCrud()
 // @Access  Private
 export const resetCrud = () => async (dispatch) => {
+  dispatch({ type: CRUD_LOADING })
+
   try {
     dispatch({
       type: RESET_CRUD,

@@ -1,5 +1,10 @@
 import React from 'react'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import {
+  BrowserRouter as Router,
+  Route,
+  withRouter,
+  Switch,
+} from 'react-router-dom'
 import { createBrowserHistory } from 'history'
 // Auth0
 import { useAuth0 } from '@auth0/auth0-react'
@@ -16,6 +21,8 @@ import {
   Resume,
   Portfolio,
   UpdateEmploymentView,
+  UpdateCrudView,
+  UXUI,
 } from './views'
 import ProtectedRoute from './auth/protected-route'
 import './app.css'
@@ -35,16 +42,24 @@ const App = () => {
           <NavBar />
           <div className="container flex-grow-1">
             <Switch>
+              {/* --- || PUBLIC || --- */}
               <Route path="/" exact component={Home} />
               <Route path="/creator" component={CreatorBio} />
               <Route path="/portfolio" component={Portfolio} />
+              {/* --- || PRIVATE || --- */}
               <ProtectedRoute path="/crud" component={CRUD} />
+              <ProtectedRoute path="/uxui" component={UXUI} />
               <ProtectedRoute path="/profile" component={Profile} />
               <ProtectedRoute path="/external-api" component={ExternalApi} />
               <ProtectedRoute path="/resume" component={Resume} />
+              {/* Update/Edit Views */}
               <ProtectedRoute
                 path="/employment/:id/update"
                 component={UpdateEmploymentView}
+              />
+              <ProtectedRoute
+                path="/crud-update/:id/update"
+                component={UpdateCrudView}
               />
             </Switch>
           </div>
@@ -55,4 +70,4 @@ const App = () => {
   )
 }
 
-export default App
+export default withRouter(App)

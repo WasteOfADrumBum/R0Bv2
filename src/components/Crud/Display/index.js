@@ -15,11 +15,6 @@ const CrudDisplay = ({
     readAllCrud()
   }, [])
 
-  /* Send Item by ID to be updated */
-  const onUpdate = (id) => {
-    console.log('Update ID', id)
-  }
-
   /* Delete an entry by ID */
   const onDelete = (id) => {
     deleteCrud(id)
@@ -115,6 +110,15 @@ const CrudDisplay = ({
                                   ? moment(crud.createdAt).format('LL')
                                   : 'No Record'}
                               </p>
+                              <p>
+                                <b className="text-uppercase">
+                                  Record Last Updated
+                                </b>
+                                :{' '}
+                                {crud.updatedAt
+                                  ? moment(crud.updatedAt).format('lll')
+                                  : 'No Record'}
+                              </p>
                             </div>
                             <div className="modal-footer">
                               <button
@@ -199,11 +203,12 @@ const CrudDisplay = ({
                   )}
                 </div>
                 <div className="col-md-1 mdBreakpoint">
-                  <i
-                    type="button"
-                    className="bi bi-pencil-square text-secondary me-2"
-                    onClick={() => onUpdate(crud._id)}
-                  />
+                  <a href={`/crud-update/${crud._id}/update`}>
+                    <i
+                      type="button"
+                      className="bi bi-pencil-square text-secondary me-2"
+                    />
+                  </a>
                   <i
                     type="button"
                     className="bi bi-trash-fill text-danger"
@@ -222,7 +227,60 @@ const CrudDisplay = ({
       <div className="row my-2">
         <div className="col-md-12 text-end">
           <span>
-            <i className="bi bi-info-circle-fill text-info me-1" />
+            <i
+              className="bi bi-info-circle-fill text-info me-1"
+              type="button"
+              data-bs-toggle="modal"
+              data-bs-target="#infoModal"
+            />
+            <div
+              className="modal fade"
+              id="infoModal"
+              tabIndex="-1"
+              aria-labelledby="infoModalLabel"
+              aria-hidden="true"
+            >
+              <div className="modal-dialog modal-dialog-centered">
+                <div className="modal-content">
+                  <div className="modal-header">
+                    <h5
+                      className="modal-title text-info text-uppercase"
+                      id="infoModalLabel"
+                    >
+                      <i className="bi bi-info-circle-fill text-info me-1" />
+                      Info
+                    </h5>
+                    <button
+                      type="button"
+                      className="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div className="modal-body">
+                    <p className="fs-5 text-start">
+                      Reducers can be used to reset the Redux state and refresh
+                      the data on the list below. I've disabled the list's
+                      abilty to refresh the ruedux state after creating a new
+                      entry and added a{' '}
+                      <i className="bi bi-arrow-clockwise text-info mx-1">
+                        REFRESH
+                      </i>{' '}
+                      button as an extra feature.
+                    </p>
+                  </div>
+                  <div className="modal-footer">
+                    <button
+                      type="button"
+                      className="btn btn-secondary"
+                      data-bs-dismiss="modal"
+                    >
+                      Close
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
             After adding a new enrty, refresh the list to see the results.
           </span>
           <button
@@ -243,7 +301,7 @@ const CrudDisplay = ({
           <div className="col-md-1"></div>
         </div>
         {/* Mapped List */}
-        {crud_loading ? <p>Loading...</p> : <CrudList />}
+        {!crud_loading ? <p>Loading...</p> : <CrudList />}
       </div>
     </div>
   )

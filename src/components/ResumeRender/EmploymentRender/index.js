@@ -1,6 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react'
-import { withRouter } from 'react-router-dom'
 import { useAuth0 } from '@auth0/auth0-react'
 import { connect } from 'react-redux'
 import moment from 'moment'
@@ -159,4 +158,4 @@ const mapStateToProps = (state) => ({
 export default connect(mapStateToProps, {
   deleteEmployment,
   readAllEmployment,
-})(withRouter(EmploymentRender))
+})(EmploymentRender)

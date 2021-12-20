@@ -16,6 +16,7 @@ export const EMPLOYMENT_SUCCESS = 'EMPLOYMENT_SUCCESS'
 // ----- Education -----
 export const GET_ALL_EDUCATION = 'GET_ALL_EDUCATION'
 export const GET_ONE_EDUCATION = 'GET_ONE_EDUCATION'
+export const UPDATE_EDUCATION = 'UPDATE_EDUCATION'
 export const DELETE_EDUCATION = 'DELETE_EDUCATION'
 export const RESET_EDUCATION = 'RESET_EDUCATION'
 export const EDUCATION_LOADING = 'EDUCATION_LOADING'
@@ -198,30 +199,168 @@ export const resetEmployment = () => async (dispatch) => {
 
 // ----- Education -----
 
-// @Route   Post api/education
-// @Desc    Create Education
-// @Action  createEducation()
-// @Access  Private
-
 // @Route   GET api/education
 // @Desc    Read All Education
 // @Action  readAllEducation()
 // @Access  Private
+export const readAllEducation = () => async (dispatch) => {
+  try {
+    const res = await axios.get('/api/education')
+    dispatch({
+      type: GET_ALL_EDUCATION,
+      payload: res.data,
+    })
+  } catch (err) {
+    if (err.response.data.errors) {
+      dispatch({
+        payload: { msg: err.response.statusText, status: err.response.status },
+      })
+    }
+
+    dispatch({
+      type: EDUCATION_FAIL,
+      payload: { msg: err.response.statusText, status: err.response.status },
+    })
+  }
+}
 
 // @Route   GET api/education/:id
 // @Desc    Read Education by ID
 // @Action  readEducation()
 // @Access  Private
+export const readEducation = (id) => async (dispatch) => {
+  dispatch({ type: RESET_EDUCATION })
+  try {
+    const res = await axios.get(`/api/education/${id}`)
+    dispatch({
+      type: GET_ONE_EDUCATION,
+      payload: res.data,
+    })
+  } catch (err) {
+    if (err.response.data.errors) {
+      dispatch({
+        payload: { msg: err.response.statusText, status: err.response.status },
+      })
+    }
 
-// @Route   Post api/education
+    dispatch({
+      type: EDUCATION_FAIL,
+      payload: { msg: err.response.statusText, status: err.response.status },
+    })
+  }
+}
+
+// @Route   POST api/education/create-education
+// @Desc    Create Education
+// @Action  createEducation()
+// @Access  Private
+export const createEducation = (formData) => async (dispatch) => {
+  try {
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    }
+    await axios
+      .post('/api/education/create-education', formData, config)
+      .then((res) => console.log(res.data))
+    dispatch({
+      type: EDUCATION_SUCCESS,
+      payload: { msg: formData, status: 'success' },
+    })
+  } catch (err) {
+    if (err.response.data.errors) {
+      dispatch({
+        payload: { msg: err.response.statusText, status: err.response.status },
+      })
+    }
+
+    dispatch({
+      type: EDUCATION_FAIL,
+      payload: { msg: err.response.statusText, status: err.response.status },
+    })
+  }
+}
+
+// @Route   PUT api/education/update-education/:id
 // @Desc    Update Education
 // @Action  updateEducation()
 // @Access  Private
+export const updateEducation = (id, formData) => async (dispatch) => {
+  try {
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    }
+    const res = await axios.post(
+      `/api/education/update-education/${id}`,
+      formData,
+      config,
+    )
+    dispatch({
+      type: UPDATE_EDUCATION,
+      payload: res.data,
+    })
+  } catch (err) {
+    console.log(err)
+    dispatch({
+      type: EDUCATION_FAIL,
+      payload: { msg: err.response.statusText, status: err.response.status },
+    })
+  }
+}
 
-// @Route   Post api/education/:id
-// @Desc    Delete Education by ID
+// @Route   DELTE api/education/delete-education/:id
+// @Desc    Delete Education
 // @Action  deleteEducation()
 // @Access  Private
+export const deleteEducation = (id) => async (dispatch) => {
+  if (
+    window.confirm(
+      'Are you sure you want to delete this education? This cannot be undone.',
+    )
+  ) {
+    try {
+      const res = await axios.delete(`/api/education/delete-education/${id}`)
+      dispatch({
+        type: DELETE_EDUCATION,
+        payload: res.data,
+      })
+    } catch (err) {
+      console.log(err)
+      dispatch({
+        type: EDUCATION_FAIL,
+        payload: { msg: err.response.statusText, status: err.response.status },
+      })
+    }
+  }
+}
+
+// @Desc    reset Education
+// @Action  resetEducation()
+// @Access  Private
+export const resetEducation = () => async (dispatch) => {
+  try {
+    dispatch({
+      type: RESET_EDUCATION,
+    })
+  } catch (err) {
+    if (err.response.data.errors) {
+      dispatch({
+        payload: {
+          msg: err.response.statusText,
+          status: err.response.status,
+        },
+      })
+    }
+
+    dispatch({
+      type: EDUCATION_FAIL,
+      payload: { msg: err.response.statusText, status: err.response.status },
+    })
+  }
+}
 
 // ----- Skills -----
 
