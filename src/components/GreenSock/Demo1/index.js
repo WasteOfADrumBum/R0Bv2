@@ -1,12 +1,24 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useRef, useEffect } from 'react'
+import { CopyBlock, a11yLight } from 'react-code-blocks'
 import { gsap } from 'gsap'
 import './_demo1.scss'
 
 const Demo1 = () => {
-  /* --- || DEMO 1 || --- */
   const demo1Ref = useRef()
   const q1 = gsap.utils.selector(demo1Ref)
+  const code = `useEffect(() => {
+    // Target any descendant with the class of .demo1Box
+    // no matter how far down the descendant tree.
+    // Uses demo1Ref.current.querySelectorAll() internally
+    gsap.to(q1('.demo1Box'), {
+      x: 100,
+      stagger: 0.33,
+      repeat: -1,
+      repeatDelay: 1,
+      yoyo: true,
+    })
+  }, [])`
 
   const Box = ({ children }) => {
     return <div className="demo1Box p-2 m-3">{children}</div>
@@ -48,15 +60,29 @@ const Demo1 = () => {
         </Box>
       </div>
       <div className="demo1Desc">
-        Lorem Ipsum is simply dummy text of the printing and typesetting
-        industry. Lorem Ipsum has been the industry's standard dummy text ever
-        since the 1500s, when an unknown printer took a galley of type and
-        scrambled it to make a type specimen book. It has survived not only five
-        centuries, but also the leap into electronic typesetting, remaining
-        essentially unchanged. It was popularised in the 1960s with the release
-        of Letraset sheets containing Lorem Ipsum passages, and more recently
-        with desktop publishing software like Aldus PageMaker including versions
-        of Lorem Ipsum.
+        <p>
+          GreenSock has many built-in features that help control the animations.
+          The easiest way to look at it is to think about where the animation
+          should start (<i>from</i>) and where it's going to end up (<i>to</i>),
+          then decide on what it's going to do to get, and finally decide what
+          it's going to do when it's finished.
+        </p>
+        <p>
+          In this example you can see the{' '}
+          <span className="greenSockGreen">boxes</span> sstart in their original
+          rendered position to the left. Then they animate to the right. I've
+          put this animation on repeat so it will never end, unlike the previous
+          demo. As you can see we can animate pictures, elements, text, and even
+          icons.
+        </p>
+        <CopyBlock
+          language="javascript"
+          text={code}
+          showLineNumbers={true}
+          theme={a11yLight}
+          wrapLines={true}
+          codeBlock
+        />
       </div>
     </div>
   )

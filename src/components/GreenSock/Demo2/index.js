@@ -58,7 +58,7 @@ const Demo2 = () => {
         it just refresh this page. The
         <span className="blue mx-1">Blue Box</span>animates when the page is
         first rendered, but it also will trigger an animation when a prop is
-        changed. You can trigger a prop changes by clicking the button
+        changed. You can trigger a prop change by clicking the button
         <span className="text-info mx-1">[Click to trigger a render]</span>
         above. The <span className="ruby mx-1">Ruby Box</span> will trigger
         every render. When you first load the page, when rendering the content

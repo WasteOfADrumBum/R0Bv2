@@ -287,19 +287,19 @@ const Grapes = () => {
       <div className="my-5">
         <p>
           GrapesJS is a multi-purpose, Web Builder Framework, which means it
-          allows you to easily create a drag & drop enabled builder of anything
+          allows you to easily create a drag & drop-enabled builder of anything
           with HTML-like structure, which entails much more than web pages.
         </p>
         <p>
           GrapesJS was designed primarily for use inside Content Management
           Systems to speed up the creation of dynamic templates and replace
           common WYSIWYG editors. Which are good for content editing, but
-          inappropriate for creating HTML structures. It's a extensible
+          inappropriate for creating HTML structures. It's an extensible
           framework that could be used by anyone for any purpose.
         </p>
         <p>
           I've added this to this animation page because like GreenSock it has
-          and array of abilities that can make a website more user friendly.
+          an array of abilities that can make a website more user-friendly.
         </p>
       </div>
       <div className="installGrapes my-2 d-grid">
