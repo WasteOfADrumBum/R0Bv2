@@ -12,6 +12,7 @@ export { default as ReactCountryFlagComponent } from './ReactCountryFlag'
 export { default as SaveFile } from './SaveFile'
 export { default as GreenSock } from './GreenSock'
 export { default as Grapes } from './Grapes'
+export { default as MUI } from './MUI'
 // ----- Buttons -----
 export { default as AuthBtn } from './AuthBtn'
 export { default as LoginBtn } from './LoginBtn'

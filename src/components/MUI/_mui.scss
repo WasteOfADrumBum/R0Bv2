@@ -1,0 +1,58 @@
+@import '../../assets/styleSheets/global';
+
+.mui {
+    .muiHdr {
+        .muiLogo {
+            max-width: 100%;
+            height: 100px;
+
+            grid-column: 1;
+            grid-row: 1 / span 2;
+            justify-self: end;
+        }
+
+        .muiHdr {
+            grid-column: 2;
+            grid-row: 1;
+            justify-self: start;
+            align-self: end;
+
+            .muiGreen {
+                color: $mui;
+            }
+        }
+
+        .muiSubHdr {
+            grid-column: 2;
+            grid-row: 2;
+            justify-self: start;
+            align-self: start;
+        }
+
+    }
+
+    .muiBlue {
+        color: $mui;
+    }
+
+    .installMUI {
+        justify-content: center;
+        grid-template-columns: 250px;
+        align-items: center;
+        grid-gap: 10px;
+
+        .installNPM {
+            grid-row: 3;
+            display: inline-block;
+            white-space: normal;
+            max-width: 100%;
+            word-break: break-all;
+            word-wrap: break-word;
+
+            .blinkingText {
+                animation: blinking 0.9s infinite;
+                font-size: 20px;
+            }
+        }
+    }
+}

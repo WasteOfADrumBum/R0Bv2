@@ -1,10 +1,5 @@
 import React from 'react'
-import {
-  BrowserRouter as Router,
-  Route,
-  withRouter,
-  Switch,
-} from 'react-router-dom'
+import { Router, Route, withRouter, Switch } from 'react-router-dom'
 import { createBrowserHistory } from 'history'
 // Auth0
 import { useAuth0 } from '@auth0/auth0-react'

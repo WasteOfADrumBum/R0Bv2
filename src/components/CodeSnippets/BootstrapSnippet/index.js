@@ -80,34 +80,34 @@ const BootstrapSnippets = () => {
       </p>
       <div className="row">
         <div className="col-md-6 p-1">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">
+          <div className="card">
+            <div className="card-body">
+              <h5 className="card-title">
                 <i className="bi bi-hand-thumbs-up me-2" />
                 Pros:
               </h5>
-              <p class="card-text">
+              <div className="card-text">
                 <ul>
                   <li>Mobile first, responsive web design framework</li>
                   <li>Good community support and documentation</li>
                 </ul>
-              </p>
+              </div>
             </div>
           </div>
         </div>
         <div className="col-md-6 p-1">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">
+          <div className="card">
+            <div className="card-body">
+              <h5 className="card-title">
                 <i className="bi bi-hand-thumbs-down me-2" />
                 Cons:
               </h5>
-              <p class="card-text">
+              <div className="card-text">
                 <ul>
                   <li>Large dependency size (~ 300KB)</li>
                   <li>Dependency on jQuery for some components to work</li>
                 </ul>
-              </p>
+              </div>
             </div>
           </div>
         </div>
