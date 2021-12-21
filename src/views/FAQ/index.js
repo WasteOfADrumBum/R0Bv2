@@ -1,6 +1,7 @@
 import React from 'react'
 import { useAuth0 } from '@auth0/auth0-react'
 import { ScrollToTop } from '../../components'
+import './_faq.scss'
 
 const FAQ = () => {
   const { isAuthenticated } = useAuth0()
@@ -9,8 +10,8 @@ const FAQ = () => {
   }
 
   return (
-    <>
-      <h2 className="text-center">FAQ - Frequently Asked Questions</h2>
+    <div className="faq">
+      <div className="faqHdr m-0 m-auto mb-2 text-center">FAQ</div>
       <p className="text-center mb-5">
         <i>
           This is a list of frequently asked questions by potential employers
@@ -32,7 +33,7 @@ const FAQ = () => {
         )}
       </ul>
       <ScrollToTop />
-    </>
+    </div>
   )
 }
 

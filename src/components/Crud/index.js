@@ -7,9 +7,6 @@ import './_crud.scss'
 const Crud = () => {
   return (
     <div className="crud">
-      <h2 className="text-center my-5">
-        Let's Checkout This MERN-Stack CRUD Example
-      </h2>
       <p>
         CRUD is an acronym that comes from the world of computer programming and
         refers to the four functions that are considered necessary to implement

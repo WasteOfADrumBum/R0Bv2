@@ -1,6 +1,16 @@
 @import '../../assets/styleSheets/global';
 
 .uxui {
+    .uxuiHdr {
+        font: bolder 8vw 'Alfa Slab One';
+        background: url("https://images.unsplash.com/photo-1433888104365-77d8043c9615?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1746&q=80") center;
+        background-size: contain, cover;
+        width: 75vw;
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+    }
+
     hr {
         margin: 3rem 0 3rem 0 !important;
         overflow: hidden;

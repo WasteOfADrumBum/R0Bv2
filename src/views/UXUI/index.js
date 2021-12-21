@@ -8,6 +8,12 @@ const UXUI = () => {
 
   return (
     <div className="uxui">
+      <div className="uxuiHdr m-0 m-auto mb-2 text-center text-uppercase">
+        UX/UI
+      </div>
+      <div className="text-center mb-5">
+        <i>The Front-End User Experience and User Interface</i>
+      </div>
       {isAuthenticated && (
         <>
           <GreenSock />

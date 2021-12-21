@@ -24,6 +24,7 @@ export { default as NavBar } from './NavBar'
 // ----- Default Page Components -----
 export { default as Hero } from './Hero'
 export { default as Loading } from './Loading'
+export { default as ContentLoading } from './ContentLoading'
 export { default as Footer } from './Footer'
 export { default as License } from './License'
 // ----- Code Snippets ------

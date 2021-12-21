@@ -1,26 +1,33 @@
 @import '../../assets/styleSheets/global';
 
 .hero {
-    code {
-        color: $black;
-        font-size: #{"max(6vw, 3rem)"};
-        white-space: nowrap;
-    }
+    .heroHdr {
+        font: bolder 8vw 'Alfa Slab One';
+        background: url("https://images.unsplash.com/photo-1613811156706-b7453bc073ef?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3757&q=80") center;
+        background-size: contain;
+        width: 75vw;
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
 
-    span {
-        -webkit-text-stroke-width: .15rem;
-        -webkit-text-stroke-color: $black;
+        span {
+            -webkit-text-stroke-width: .15rem;
+            // -webkit-text-stroke-color: $black;
 
-        &:first-of-type {
-            color: $react;
-        }
+            &:first-of-type {
+                //color: $react;
+                color: rgba(97, 218, 251, .5)
+            }
 
-        &:nth-of-type(2) {
-            color: $auth0;
-        }
+            &:nth-of-type(2) {
+                // color: $auth0;
+                color: rgba(235, 84, 36, .5)
+            }
 
-        &:nth-of-type(3) {
-            color: $bootstrap;
+            &:nth-of-type(3) {
+                // color: $bootstrap;
+                color: rgba(121, 82, 179, .5)
+            }
         }
     }
 }

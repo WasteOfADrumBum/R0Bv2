@@ -1,83 +1,96 @@
 @import '../../assets/styleSheets/global';
 
 .profile {
-    display: grid;
-    grid-gap: 10px;
+    .profileHdr {
+        font: bolder 8vw 'Alfa Slab One';
+        background: url("https://images.unsplash.com/22/brick-wall.JPG?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80") center;
+        background-size: contain;
+        width: 75vw;
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+    }
 
-    .hdr {
+    .profileContainer {
         display: grid;
-        grid-column: 1 / span 2;
-        grid-row: 1;
-        justify-self: start;
         grid-gap: 10px;
 
-        .profilePicture {
-            grid-column: 1;
-            grid-row: 1 / span 2;
-        }
 
-        .name {
-            grid-column: 2 / span 2;
-            grid-row: 1;
-            align-self: end;
-        }
-
-        .location {
-            grid-column: 3;
+        .hdr {
+            display: grid;
+            grid-column: 1 / span 2;
             grid-row: 2;
-        }
+            justify-self: start;
+            grid-gap: 10px;
 
-        .email {
-            grid-column: 2;
-            grid-row: 2;
-
-            .verified {
-                color: $success;
-                font-size: .7rem;
+            .profilePicture {
+                grid-column: 1;
+                grid-row: 1 / span 2;
             }
 
-            .unverified {
-                color: $failure;
-                font-size: .7rem;
-                text-transform: uppercase;
+            .name {
+                grid-column: 2 / span 2;
+                grid-row: 1;
+                align-self: end;
+            }
+
+            .location {
+                grid-column: 3;
+                grid-row: 2;
+            }
+
+            .email {
+                grid-column: 2;
+                grid-row: 2;
+
+                .verified {
+                    color: $success;
+                    font-size: .7rem;
+                }
+
+                .unverified {
+                    color: $failure;
+                    font-size: .7rem;
+                    text-transform: uppercase;
+                }
             }
         }
-    }
 
-    .phoneImg {
-        grid-column: 1 / span 2;
-        grid-row: 2;
-        z-index: 1;
-        align-self: center;
-        justify-self: center;
-    }
-
-    .infoDumpWrap {
-        grid-column: 1 / span 2;
-        grid-row: 2;
-        z-index: 2;
-        display: grid;
-        //grid-template: 1fr 2fr 1fr / 1fr 3fr 1fr;
-        grid-template: auto / auto;
-
-
-        img {
-            grid-column: 1 / span 6;
-            grid-row: 1 / span 6;
+        .phoneImg {
+            grid-column: 1 / span 2;
+            grid-row: 2;
+            z-index: 1;
             align-self: center;
-            justify-self: start;
+            justify-self: center;
         }
 
-        .infoDump {
-            /* font-size: calc([minimum size] + ([maximum size] - [minimum size]) * ((100vw - [minimum viewport width]) / ([maximum viewport width] - [minimum viewport width]))); */
-            font-size: calc(6px + 10 * ((100vw - 320px) / 1296));
-            white-space: break-spaces;
-            grid-column: 2 / span 4;
-            grid-row: 3 / span 2;
-            /* Hide scrollbars */
-            overflow: hidden;
-            align-self: center;
-            justify-self: start;
+        .infoDumpWrap {
+            grid-column: 1 / span 2;
+            grid-row: 3;
+            z-index: 2;
+            display: grid;
+            //grid-template: 1fr 2fr 1fr / 1fr 3fr 1fr;
+            grid-template: auto / auto;
+
+
+            img {
+                grid-column: 1 / span 6;
+                grid-row: 1 / span 6;
+                align-self: center;
+                justify-self: start;
+            }
+
+            .infoDump {
+                /* font-size: calc([minimum size] + ([maximum size] - [minimum size]) * ((100vw - [minimum viewport width]) / ([maximum viewport width] - [minimum viewport width]))); */
+                font-size: calc(6px + 10 * ((100vw - 320px) / 1296));
+                white-space: break-spaces;
+                grid-column: 2 / span 4;
+                grid-row: 3 / span 2;
+                /* Hide scrollbars */
+                overflow: hidden;
+                align-self: center;
+                justify-self: start;
+            }
         }
     }
 }

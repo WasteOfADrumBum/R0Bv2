@@ -1,0 +1,13 @@
+@import '../../assets/styleSheets/global';
+
+.portfolio {
+    .portfolioHdr {
+        font: bolder 8vw 'Alfa Slab One';
+        background: url("https://images.unsplash.com/photo-1619844455609-1c3894de07b7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2660&q=80") center;
+        background-size: cover;
+        width: 75vw;
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+    }
+}

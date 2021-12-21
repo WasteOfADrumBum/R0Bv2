@@ -5,7 +5,6 @@ import './_creatorProfile.scss'
 const CreatorProfile = () => {
   return (
     <>
-      <h2 className="text-center my-5">Who Made This Awesome Application?</h2>
       <div className="mt-4 creatorProfile">
         <div className="profileContainer px-4">
           <div className="profileImg m-auto">
