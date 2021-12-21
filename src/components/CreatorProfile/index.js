@@ -9,7 +9,7 @@ const CreatorProfile = () => {
         <div className="profileContainer px-4">
           <div className="profileImg m-auto">
             <img
-              src="/assets/images/profile-picture-2.png"
+              src="/assets/images/profile-2022.png"
               className="img-fluid rounded-circle"
               alt="..."
             />
