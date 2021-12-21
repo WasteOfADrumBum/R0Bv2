@@ -35,7 +35,7 @@ const Demo2 = () => {
   return (
     <div className="demo2Container my-5">
       <div className="row">
-        <div className="demo2Desc col-md-6">
+        <div className="demo2Desc col-md-6 p-5">
           Let me explain what's going on in this animation. The
           <span className="purple mx-1">Purple Box</span>animates when the page
           is first rendered after that you won't see it animate again. If you

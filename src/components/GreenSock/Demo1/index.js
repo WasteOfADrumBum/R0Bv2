@@ -49,7 +49,7 @@ const Demo1 = () => {
           />
         </Box>
       </div>
-      <div className="demo1Desc">
+      <div className="demo1Desc px-5 py-3">
         <p>
           GreenSock has many built-in features that help control the animations.
           The easiest way to look at it is to think about where the animation
@@ -65,15 +65,15 @@ const Demo1 = () => {
           demo. As you can see we can animate pictures, elements, text, and even
           icons.
         </p>
-        <CopyBlock
-          language="javascript"
-          text={code}
-          showLineNumbers={true}
-          theme={a11yLight}
-          wrapLines={true}
-          codeBlock
-        />
       </div>
+      <CopyBlock
+        language="javascript"
+        text={code}
+        showLineNumbers={true}
+        theme={a11yLight}
+        wrapLines={true}
+        codeBlock
+      />
     </div>
   )
 }

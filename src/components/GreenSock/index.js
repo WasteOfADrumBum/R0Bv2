@@ -11,7 +11,7 @@ const GreenSock = () => {
     <div className="greenSock my-5">
       <div className="row align-items-center">
         <div className="col-md-4">
-          <h2 className="text-center d-grid mb-5 greenSockHdr ">
+          <h2 className="text-center d-grid greenSockHdr ">
             <img
               src="./assets/images/greensock-logo.png"
               alt="GreenSock Logo"

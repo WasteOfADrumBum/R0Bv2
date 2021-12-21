@@ -23,7 +23,7 @@ const MUI = () => {
     <div className="mui my-5">
       <div className="row align-items-center">
         <div className="col-md-4">
-          <h2 className="text-center d-grid mb-5 muiHdr ">
+          <h2 className="text-center d-grid muiHdr ">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="50"

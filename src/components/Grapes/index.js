@@ -299,17 +299,15 @@ const Grapes = () => {
           </div>
         </div>
         <div className="col-md-4">
-          <div className="my-5">
-            <p>
-              GrapesJS is a multi-purpose, Web Builder Framework, which means it
-              allows you to easily create a drag & drop-enabled builder of
-              anything with HTML-like structure, which entails much more than
-              web pages.
-            </p>
-          </div>
+          <p>
+            GrapesJS is a multi-purpose, Web Builder Framework, which means it
+            allows you to easily create a drag & drop-enabled builder of
+            anything with HTML-like structure, which entails much more than web
+            pages.
+          </p>
         </div>
       </div>
-      <div className="my-5">
+      <div className="mb-5">
         <p>
           GrapesJS was designed primarily for use inside Content Management
           Systems to speed up the creation of dynamic templates and replace
