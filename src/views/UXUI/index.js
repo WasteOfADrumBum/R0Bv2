@@ -1,6 +1,6 @@
 import React from 'react'
 import { useAuth0 } from '@auth0/auth0-react'
-import { Grapes, GreenSock, MUI, ScrollToTop } from '../../components'
+import { EyeBall, Grapes, GreenSock, MUI, ScrollToTop } from '../../components'
 import './_uxui.scss'
 
 const UXUI = () => {
@@ -21,6 +21,10 @@ const UXUI = () => {
           <Grapes />
           <hr />
           <MUI />
+          <div className="d-grid eyeBalls">
+            <EyeBall />
+            <EyeBall />
+          </div>
           <ScrollToTop />
         </>
       )}
