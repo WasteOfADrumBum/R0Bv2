@@ -34,23 +34,6 @@ const Demo2 = () => {
 
   return (
     <div className="demo2Container my-5">
-      <div className="demo2 p-2 w-100 text-center" ref={demo2Ref}>
-        <div>
-          <button
-            className="btn btn-lg btn-outline-info mb-3"
-            onClick={() => setCount(count + 1)}
-          >
-            Click to trigger a render
-          </button>
-        </div>
-        <p>Renders: {count}</p>
-        <p>Prop changes: {delayedCount}</p>
-        <div className="d-flex flex-md-row w-100 justify-content-md-around align-items-md-center">
-          <div className="demo2Box box-1">First render</div>
-          <div className="demo2Box box-2">First render & prop change</div>
-          <div className="demo2Box box-3">Every render</div>
-        </div>
-      </div>
       <div className="row">
         <div className="demo2Desc col-md-6">
           Let me explain what's going on in this animation. The
@@ -68,7 +51,25 @@ const Demo2 = () => {
           above to trigger it, but you'll notice it triggers on both the render
           and the prop change.
         </div>
-        <div className="col-md-6"></div>
+        <div className="col-md-6">
+          <div className="demo2 p-2 w-100 text-center" ref={demo2Ref}>
+            <div>
+              <button
+                className="btn btn-lg btn-outline-info mb-3"
+                onClick={() => setCount(count + 1)}
+              >
+                Click to trigger a render
+              </button>
+            </div>
+            <p>Renders: {count}</p>
+            <p>Prop changes: {delayedCount}</p>
+            <div className="d-flex flex-md-row w-100 justify-content-md-around align-items-md-center">
+              <div className="demo2Box box-1">First render</div>
+              <div className="demo2Box box-2">First render & prop change</div>
+              <div className="demo2Box box-3">Every render</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   )

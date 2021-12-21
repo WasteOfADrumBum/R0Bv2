@@ -1,0 +1,28 @@
+@import '../../../assets/styleSheets/global';
+
+.scrollTrigger {
+    .main {
+        .section {
+
+            &:nth-child(odd) {
+                h3 {
+                    color: $blue;
+                }
+
+                p {
+                    color: $greenSock
+                }
+            }
+
+            &:nth-child(even) {
+                h3 {
+                    color: $ruby;
+                }
+
+                p {
+                    color: $robinsEgg
+                }
+            }
+        }
+    }
+}

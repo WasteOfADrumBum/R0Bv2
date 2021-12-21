@@ -273,23 +273,43 @@ const Grapes = () => {
   }, [])
 
   return (
-    <div className="grapes">
-      <div className="d-flex justify-content-center">
-        <div className="grapesHdr fs-2 text-center text-white d-grid p-2 rounded">
-          <img
-            src="./assets/images/grapes-logo.png"
-            alt="GreenSock Logo"
-            className="greenSockLogo"
-          />
-          GrapesJS
+    <div className="grapes my-5">
+      <div className="row align-items-center">
+        <div className="col-md-4">
+          <div className="d-flex justify-content-center">
+            <div className="grapesHdr fs-2 text-center text-white d-grid p-2 rounded">
+              <img
+                src="./assets/images/grapes-logo.png"
+                alt="GreenSock Logo"
+                className="greenSockLogo"
+              />
+              GrapesJS
+            </div>
+          </div>
+        </div>
+        <div className="col-md-4">
+          <div className="installGrapes my-2 d-grid">
+            <hr className="pinkGrapes" />
+            <i className="text-center">We can use NPM to install GrapesJS.</i>
+            <code className="installNPM text-left p-2 m-auto text-white bg-dark rounded">
+              npm install gsap
+              <span className="blinkingText">|</span>
+            </code>
+            <hr className="pinkGrapes" />
+          </div>
+        </div>
+        <div className="col-md-4">
+          <div className="my-5">
+            <p>
+              GrapesJS is a multi-purpose, Web Builder Framework, which means it
+              allows you to easily create a drag & drop-enabled builder of
+              anything with HTML-like structure, which entails much more than
+              web pages.
+            </p>
+          </div>
         </div>
       </div>
       <div className="my-5">
-        <p>
-          GrapesJS is a multi-purpose, Web Builder Framework, which means it
-          allows you to easily create a drag & drop-enabled builder of anything
-          with HTML-like structure, which entails much more than web pages.
-        </p>
         <p>
           GrapesJS was designed primarily for use inside Content Management
           Systems to speed up the creation of dynamic templates and replace
@@ -301,15 +321,6 @@ const Grapes = () => {
           I've added this to this animation page because like GreenSock it has
           an array of abilities that can make a website more user-friendly.
         </p>
-      </div>
-      <div className="installGrapes my-2 d-grid">
-        <hr className="pinkGrapes" />
-        <i className="text-center">We can use NPM to install GrapesJS.</i>
-        <code className="installNPM text-left p-2 m-auto text-white bg-dark rounded">
-          npm install gsap
-          <span className="blinkingText">|</span>
-        </code>
-        <hr className="pinkGrapes" />
       </div>
       <div className="panel__top">
         <div className="panel__basic-actions"></div>
