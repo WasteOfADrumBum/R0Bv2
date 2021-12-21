@@ -3,9 +3,6 @@ import $ from 'jquery'
 import './_scrollToTop.scss'
 
 const ScrollToTop = () => {
-  //Get the button
-  var mybutton = document.getElementById('scrollToTopBtn')
-
   // When the user scrolls down 20px from the top of the document, show the button
   window.onscroll = function () {
     scrollFunction()

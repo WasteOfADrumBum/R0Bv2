@@ -44,7 +44,8 @@
 		"react-select": "^5.2.1",
 		"react-to-print": "^2.14.2",
 		"redux-devtools-extension": "^2.13.9",
-		"redux-thunk": "^2.4.1"
+		"redux-thunk": "^2.4.1",
+		"sass": "^1.45.1"
 	},
 	"scripts": {
 		"env": "cross-env PORT=4040 react-scripts start",

@@ -2,10 +2,11 @@
 
 .resume {
     .resumeHdr {
-        font: bolder 8vw 'Alfa Slab One';
+        font-family: 'Alfa Slab One';
+        font-weight: bolder;
+        @include fluid-type(font-size, 320px, 1140px, 32px, 120px);
         background: url("https://images.unsplash.com/photo-1533982388521-71c3e7163a0d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2592&q=80") center;
         background-size: cover;
-        width: 75vw;
         background-clip: text;
         -webkit-background-clip: text;
         color: transparent;

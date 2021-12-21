@@ -2,10 +2,11 @@
 
 .profile {
     .profileHdr {
-        font: bolder 8vw 'Alfa Slab One';
+        font-family: 'Alfa Slab One';
+        font-weight: bolder;
+        @include fluid-type(font-size, 320px, 1140px, 32px, 120px);
         background: url("https://images.unsplash.com/22/brick-wall.JPG?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80") center;
         background-size: contain;
-        width: 75vw;
         background-clip: text;
         -webkit-background-clip: text;
         color: transparent;

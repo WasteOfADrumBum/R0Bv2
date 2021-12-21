@@ -69,7 +69,7 @@ const faqList = [
   {
     question: 'How do you work within a team dynamic?',
     answer:
-      'I prefer an Agile Scrum environment where we have a daily stand-up, bi-weekly sprints, weekly backlog refinements, and weekly retrospectives. I am more than happy to always help test or troubleshoot when developing with teammates. I maintain a lot of notes in my assigned tickets for others to follow behind me and comment effectively in my code. When I exhaust my options using google foo and reading the documentation I always ask for help from my team to see if anyone has run into a similar issue or go to a Sr. Dev if all else fails. We work independently as developers most of the time, but similar to ants we accomplish big things with our small tasks.',
+      'I prefer an Agile Scrum environment where we have a daily stand-up, bi-weekly sprints, weekly backlog refinements, and weekly retrospectives. I am more than happy to always help test or troubleshoot when developing with teammates. I maintain a lot of notes in my assigned tickets for others to follow behind me and comment effectively in my code. When I exhaust my options using google foo and reading the documentation I always ask for help from my team to see if anyone has run into a similar issue or go to a Sr. Dev if all else fails. We work independently as developers most of the time, but similar to ants we accomplish big things as a team with our small individual tasks.',
   },
   {
     question:
