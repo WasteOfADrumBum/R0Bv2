@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
+import { useParams } from 'react-router-dom'
 import {
   TextField,
   SelectListOption,
@@ -13,7 +14,6 @@ import './_update.scss'
 
 const UpdateCrud = ({
   history,
-  match,
   updateCrud,
   readCrud,
   crud: { loading: crud_loading, crud },
@@ -29,7 +29,7 @@ const UpdateCrud = ({
   })
 
   // Get ID from URL
-  const id = match.params.id
+  const { id } = useParams()
 
   useEffect(() => {
     // Find Employment by ID

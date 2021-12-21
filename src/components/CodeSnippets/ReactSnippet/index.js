@@ -1,32 +1,11 @@
 import React from 'react'
 import { CopyBlock, a11yLight } from 'react-code-blocks'
+import { CopyBlockCodeSnippets } from '../../../utils'
 import '../_codeSnippets.scss'
 
 const ReactSnippets = () => {
-  const simpleCode = `const SimpleComponent = () => {
-    return (
-      <div>Hellow World!</div>
-    )
-  }
-
-  export default SimpleComponent`
-
-  const statefulCode = `// name is a prop
-  const Hello = ({ name }) => (<div>Hello, {name}!</div>);
-
-  // returns 'Hello, John Doe!'
-  <Hello name={'John Doe'}/>
-  
-  const Hello = () => {
-    // declare a state
-    [data, setData] = useState()
-
-    // set the state
-    setData('John Doe')
-
-    // returns 'Hello, John Doe!'
-    return (<div>Hello, {data}!</div>)
-  }`
+  const simpleCode = CopyBlockCodeSnippets.simpleCode
+  const statefulCode = CopyBlockCodeSnippets.statefulCode
 
   return (
     <div className="reactSnippet">

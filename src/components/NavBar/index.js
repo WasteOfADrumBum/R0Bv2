@@ -6,7 +6,7 @@ import './_navBar.scss'
 const NavBar = () => {
   return (
     <nav className="navbar navbar-expand-md navbar-light bg-light mb-3">
-      <div className="container-fluid">
+      <div className="container container-fluid">
         <button
           className="navbar-toggler"
           type="button"
@@ -86,6 +86,16 @@ const NavBar = () => {
                 activeClassName="router-link-exact-active"
               >
                 Profile
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                to="/faq"
+                exact
+                className="nav-link"
+                activeClassName="router-link-exact-active"
+              >
+                FAQ
               </NavLink>
             </li>
           </ul>

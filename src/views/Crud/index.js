@@ -1,6 +1,11 @@
 import React from 'react'
-import { Crud } from '../../components'
+import { Crud, ScrollToTop } from '../../components'
 
-const CRUD = () => <Crud />
+const CRUD = () => (
+  <>
+    <Crud />
+    <ScrollToTop />
+  </>
+)
 
 export default CRUD

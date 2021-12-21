@@ -18,6 +18,7 @@ export { default as AuthBtn } from './AuthBtn'
 export { default as LoginBtn } from './LoginBtn'
 export { default as SignupBtn } from './SignupBtn'
 export { default as LogoutBtn } from './LogoutBtn'
+export { default as ScrollToTop } from './ScrollToTop'
 // ----- Menus -----
 export { default as NavBar } from './NavBar'
 // ----- Default Page Components -----

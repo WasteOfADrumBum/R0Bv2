@@ -51,21 +51,24 @@ const Demo2 = () => {
           <div className="demo2Box box-3">Every render</div>
         </div>
       </div>
-      <div className="demo2Desc">
-        Let me explain what's going on in this animation. The
-        <span className="purple mx-1">Purple Box</span>animates when the page is
-        first rendered after that you won't see it animate again. If you missed
-        it just refresh this page. The
-        <span className="blue mx-1">Blue Box</span>animates when the page is
-        first rendered, but it also will trigger an animation when a prop is
-        changed. You can trigger a prop change by clicking the button
-        <span className="text-info mx-1">[Click to trigger a render]</span>
-        above. The <span className="ruby mx-1">Ruby Box</span> will trigger
-        every render. When you first load the page, when rendering the content
-        again or when the prop is changed. You can also click the button
-        <span className="text-info mx-1">[Click to trigger a render]</span>
-        above to trigger it, but you'll notice it triggers on both the render
-        and the prop change.
+      <div className="row">
+        <div className="demo2Desc col-md-6">
+          Let me explain what's going on in this animation. The
+          <span className="purple mx-1">Purple Box</span>animates when the page
+          is first rendered after that you won't see it animate again. If you
+          missed it just refresh this page. The
+          <span className="blue mx-1">Blue Box</span>animates when the page is
+          first rendered, but it also will trigger an animation when a prop is
+          changed. You can trigger a prop change by clicking the button
+          <span className="text-info mx-1">[Click to trigger a render]</span>
+          above. The <span className="ruby mx-1">Ruby Box</span> will trigger
+          every render. When you first load the page, when rendering the content
+          again or when the prop is changed. You can also click the button
+          <span className="text-info mx-1">[Click to trigger a render]</span>
+          above to trigger it, but you'll notice it triggers on both the render
+          and the prop change.
+        </div>
+        <div className="col-md-6"></div>
       </div>
     </div>
   )

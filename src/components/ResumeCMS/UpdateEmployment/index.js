@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
+import { useParams } from 'react-router-dom'
 import {
   TextField,
   TextArea,
@@ -13,7 +14,6 @@ import './_updateEmployment.scss'
 
 const UpdateEmployment = ({
   history,
-  match,
   updateEmployment,
   readEmployment,
   employment: { loading: employment_loading, employment },
@@ -31,7 +31,7 @@ const UpdateEmployment = ({
   })
 
   // Get ID from URL
-  const id = match.params.id
+  const { id } = useParams()
 
   useEffect(() => {
     // Find Employment by ID

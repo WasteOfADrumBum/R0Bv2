@@ -24,44 +24,51 @@ const ResumeRender = () => {
       <div className="text-end">
         <SaveFile url={pdf} label="Download CV" />
       </div>
+      <div className="row">
+        <div className="col-lg-8">
+          <h2 className="text-left resumeSectionHdr">
+            <i className="fas fa-laptop-code" />
+            Developer Work Experience
+            <hr />
+          </h2>
+          <div className="my-3">
+            <EmploymentRender type={'Dev'} />
+          </div>
+          <p className="mx-4">
+            Click <a href="/portfolio">here</a> to view my portfolio of
+            projects.
+          </p>
+          <h2 className="text-left resumeSectionHdr">
+            <i className="fas fa-briefcase" />
+            Non-Developer Work Experience
+            <hr />
+          </h2>
+          <div className="my-3">
+            <EmploymentRender type={'Exp'} />
+          </div>
+        </div>
+        <div className="col-lg-4">
+          <h2 className="text-left resumeSectionHdr">
+            <i className="fas fa-list" />
+            Skills
+            <hr />
+          </h2>
+          <div className="my-3">
+            <SkillsRender />
+          </div>
+          <h2 className="text-left resumeSectionHdr">
+            <i className="fas fa-user-graduate" />
+            Education
+            <hr />
+          </h2>
+          <div className="my-3">
+            <EducationRender />
+          </div>
+        </div>
+      </div>
 
       <h2 className="text-left resumeSectionHdr">
-        <i className="fas fa-laptop-code" />
-        Developer Work Experience
-        <hr />
-      </h2>
-      <div className="my-3">
-        <EmploymentRender type={'Dev'} />
-      </div>
-      <p className="mx-4">
-        Click <a href="/portfolio">here</a> to view my portfolio of projects.
-      </p>
-      <h2 className="text-left resumeSectionHdr">
-        <i className="fas fa-briefcase" />
-        Non-Developer Work Experience
-        <hr />
-      </h2>
-      <div className="my-3">
-        <EmploymentRender type={'Exp'} />
-      </div>
-      <h2 className="text-left resumeSectionHdr">
-        <i className="fas fa-user-graduate" />
-        Education
-        <hr />
-      </h2>
-      <div className="my-3">
-        <EducationRender />
-      </div>
-      <h2 className="text-left resumeSectionHdr">
-        <i className="fas fa-list" />
-        Skills
-        <hr />
-      </h2>
-      <div className="my-3">
-        <SkillsRender />
-      </div>
-      <h2 className="text-left resumeSectionHdr">
-        <i className="fab fa-linkedin-in" />
+        <i className="fas fa-share" />
         Social Media
         <hr />
       </h2>

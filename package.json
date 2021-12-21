@@ -26,6 +26,7 @@
 		"grapesjs": "^0.17.29",
 		"grapesjs-preset-webpage": "^0.1.11",
 		"gsap": "^3.9.0",
+		"jquery": "^3.6.0",
 		"moment": "^2.29.1",
 		"mongodb": "^4.2.2",
 		"mongoose": "^6.1.2",

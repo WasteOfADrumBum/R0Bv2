@@ -1,12 +1,12 @@
 import React from 'react'
-
-import { Hero, HomeContent } from '../../components'
+import { Hero, HomeContent, ScrollToTop } from '../../components'
 
 const Home = () => (
   <>
     <Hero />
     <hr />
     <HomeContent />
+    <ScrollToTop />
   </>
 )
 

@@ -2,23 +2,13 @@
 import React, { useRef, useEffect } from 'react'
 import { CopyBlock, a11yLight } from 'react-code-blocks'
 import { gsap } from 'gsap'
+import { CopyBlockCodeSnippets } from '../../../utils'
 import './_demo1.scss'
 
 const Demo1 = () => {
   const demo1Ref = useRef()
   const q1 = gsap.utils.selector(demo1Ref)
-  const code = `useEffect(() => {
-    // Target any descendant with the class of .demo1Box
-    // no matter how far down the descendant tree.
-    // Uses demo1Ref.current.querySelectorAll() internally
-    gsap.to(q1('.demo1Box'), {
-      x: 100,
-      stagger: 0.33,
-      repeat: -1,
-      repeatDelay: 1,
-      yoyo: true,
-    })
-  }, [])`
+  const code = CopyBlockCodeSnippets.demo1
 
   const Box = ({ children }) => {
     return <div className="demo1Box p-2 m-3">{children}</div>
