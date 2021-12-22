@@ -135,9 +135,9 @@ const CrudInput = ({ createCrud }) => {
           </div>
           <div className="row pt-2">
             <div className="col-md-10">
-              <span className="badge bg-light text-dark border border-2 border-dark rounded-1 py-2 w-100 text-start fs-6 fw-normal">
+              <div className="bg-light text-dark border border-2 border-dark rounded-1 p-2 w-100 text-start fs-6 fw-normal">
                 The unicorn is the national animal of Scotland:
-              </span>
+              </div>
             </div>
             <div className="col-md-2 text-center">
               <ToggleSwitch

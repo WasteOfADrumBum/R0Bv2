@@ -46,7 +46,7 @@ const EducationRender = ({
                 return (
                   <div
                     key={`${education} + ${i}`}
-                    className={`education pb-2 mb-2 education-${i}`}
+                    className={`education pb-3 mb-3 education-${i}`}
                   >
                     {education.school && (
                       <div className="school">{education.school}</div>

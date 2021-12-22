@@ -4,24 +4,30 @@
     .main {
         .section {
 
+            max-width: 300px;
+
             &:nth-child(odd) {
-                h3 {
+                p {
                     color: $blue;
                 }
 
-                p {
+                i {
                     color: $greenSock
                 }
             }
 
             &:nth-child(even) {
-                h3 {
+                p {
                     color: $ruby;
                 }
 
-                p {
+                i {
                     color: $robinsEgg
                 }
+            }
+
+            &:nth-last-child(1) {
+                border: none !important;
             }
         }
     }

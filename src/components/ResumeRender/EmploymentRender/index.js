@@ -73,7 +73,7 @@ const EmploymentRender = ({
               return (
                 <div
                   key={`${employment} + ${i}`}
-                  className={`employment pb-2 mb-2 employment-${i}`}
+                  className={`employment pb-3 mb-3 employment-${i}`}
                 >
                   {employment.title && (
                     <div className="title">{employment.title}</div>

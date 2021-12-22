@@ -59,10 +59,6 @@ const GreenSock = () => {
       <Demo1 />
       {/* ScrollTrigger */}
       <ScrollTriggerComponent />
-      <div className="comingSoon text-uppercase text-center text-info">
-        <i className="bi bi-info-circle-fill mx-1" />
-        More Animations Coming Soon
-      </div>
     </div>
   )
 }

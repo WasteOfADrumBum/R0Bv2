@@ -29,6 +29,10 @@ const UXUI = () => {
           <MUI />
           <hr />
           <KeyFrames />
+          <div className="comingSoon text-uppercase text-center text-info mt-5 pt-5 mb-2">
+            <i className="bi bi-info-circle-fill mx-1" />
+            More Animations Coming Soon
+          </div>
           <ScrollToTop />
         </>
       )}

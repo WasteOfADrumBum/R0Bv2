@@ -9,22 +9,22 @@ gsap.registerPlugin(ScrollTrigger)
 
 const sections = [
   {
-    title: 'Monty Python and the Holy Grail (1975)',
-    subtitle: "'It's just a flesh wound.'",
+    author: 'Monty Python and the Holy Grail (1975)',
+    quote: "It's just a flesh wound.",
   },
   {
-    title: 'Deadpool (2016)',
-    subtitle:
-      "'I'm about to do to you what Limp Bizkit did to music in the late '90s.'",
+    author: 'Deadpool (2016)',
+    quote:
+      "I'm about to do to you what Limp Bizkit did to music in the late '90s.",
   },
   {
-    title: 'The Incredibles (2004)',
-    subtitle:
-      "''Greater good?' I am your wife! I'm the greatest good you're ever gonna get!'",
+    author: 'The Incredibles (2004)',
+    quote:
+      "'Greater good?' I am your wife! I'm the greatest good you're ever gonna get!",
   },
   {
-    title: 'The Godfather (1972)',
-    subtitle: "'Leave the gun. Take the cannoli.'",
+    author: 'The Godfather (1972)',
+    quote: 'Leave the gun. Take the cannoli.',
   },
 ]
 
@@ -91,17 +91,22 @@ const ScrollTriggerComponent = () => {
             <i>Scroll down to see sections being revealed by ScrollTrigger.</i>
           </div>
         </div>
-        <div className="col-md-7">
-          <main className="main">
-            {sections.map(({ title, subtitle }) => (
-              <div className="section" key={title} ref={addToRefs}>
-                <h3>{title}</h3>
-                <p>{subtitle}</p>
+        <div className="col-md-4">
+          <main className="main d-flex flex-column align-items-center">
+            {sections.map(({ author, quote }) => (
+              <div
+                className="section mb-3 border-bottom"
+                key={author}
+                ref={addToRefs}
+              >
+                <i className="fs-5">"{quote}"</i>
+                <p className="ms-2">- {author}</p>
               </div>
             ))}
           </main>
         </div>
-        <div className="col-md-5">
+        <div className="col-md-8 d-flex flex-column justify-content-center">
+          <h3>ScrollTrigger</h3>
           <p>
             One of GreenSock's best animations has to be ScrollTrigger.
             ScrollTrigger creates jaw-dropping scroll-based animations with
