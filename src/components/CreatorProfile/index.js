@@ -7,19 +7,49 @@ const CreatorProfile = () => {
     <>
       <div className="mt-4 creatorProfile">
         <div className="profileContainer px-4">
-          <div className="profileImg m-auto">
-            <img
-              src="/assets/images/profile-2022.png"
-              className="img-fluid rounded-circle"
-              alt="..."
-            />
+          <div className="d-grid spherenado">
+            <div className="profileImg">
+              <div className="metal">
+                <dir className="clipCircle">
+                  <div className="cubeWrapper">
+                    <div className="cube-2">
+                      <div className="cube">
+                        <div id="face1" className="face"></div>
+                        <div id="face2" className="face"></div>
+                        <div id="face3" className="face"></div>
+                        <div id="face4" className="face"></div>
+                        <div id="face5" className="face"></div>
+                        <div id="face6" className="face"></div>
+                        <div id="face7" className="face"></div>
+                        <div id="face8" className="face"></div>
+                      </div>
+                    </div>
+                  </div>
+                </dir>
+                <div className="circle reflection lighting"></div>
+              </div>
+            </div>
+            <div id="circleContainer">
+              <div className="circl-1"></div>
+              <div className="circle-2"></div>
+              <div className="circle-3"></div>
+              <div className="circle-4"></div>
+              <div className="circle-5"></div>
+              <div className="circle-6"></div>
+              <div className="circle-7"></div>
+              <div className="circle-8"></div>
+              <div className="circle-9"></div>
+              <div className="circle-10"></div>
+              <div className="circle-11"></div>
+            </div>
           </div>
+
           <div className="profileDesc text-left pt-4">
             <div className="profileTitle">
-              <h3>Joshua M. Small</h3>
-              <h5>Full-Stack Web Developer</h5>
+              <h2 className="text-uppercase mb-1">Joshua M. Small</h2>
+              <h4 className="text-uppercase mb-1">Full-Stack Web Developer</h4>
             </div>
-            <div className="profileContact">
+            <div className="profileContact mb-1">
               <a href="mailto:jmsmall89@gmail.com?subject='Personal Project'">
                 <i className="fas fa-envelope" />
               </a>

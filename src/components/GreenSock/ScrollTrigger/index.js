@@ -29,24 +29,14 @@ const sections = [
 ]
 
 const ScrollTriggerComponent = () => {
-  const [background, setBackground] = useState('#262626')
   const headerRef = useRef(null)
-
   const revealRefs = useRef([])
   revealRefs.current = []
 
-  const toggleBackground = () => {
-    const color = background !== '#262626' ? '#262626' : '#1b4943'
-    setBackground(color)
-  }
-
-  useEffect(() => {
-    gsap.to(headerRef.current, {
-      backgroundColor: background,
-      duration: 1,
-      ease: 'none',
-    })
-  }, [background])
+  gsap.config({
+    // https://greensock.com/forums/topic/22491-gsap3-target-object-not-found/
+    nullTargetWarn: false,
+  })
 
   useEffect(() => {
     gsap.from(headerRef.current, {

@@ -5,10 +5,10 @@ const EyeBall = () => {
   return (
     <div className="eyeBall">
       <div className="eyeBallWrap">
-        <section class="stage">
-          <figure class="ball">
-            <span class="shadow"></span>
-            <span class="iris"></span>
+        <section className="stage">
+          <figure className="ball">
+            <span className="shadow"></span>
+            <span className="iris"></span>
           </figure>
         </section>
       </div>

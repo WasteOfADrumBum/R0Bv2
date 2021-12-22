@@ -24,18 +24,18 @@ const KeyFrames = () => {
             <div className="circleShape rounded-circle" />
           </div>
           <div className="keyFramesTitle">
-            <h1 class="kf --debug">
-              <span class="kf__row">
-                <span class="kf__text text-uppercase">Keyframes</span>
+            <h1 className="kf --debug">
+              <span className="kf__row">
+                <span className="kf__text text-uppercase">Keyframes</span>
               </span>
-              <span class="kf__row kf__row--sibling" aria-hidden="true">
-                <span class="kf__text text-uppercase">Keyframes</span>
+              <span className="kf__row kf__row--sibling" aria-hidden="true">
+                <span className="kf__text text-uppercase">Keyframes</span>
               </span>
-              <span class="kf__row kf__row--sibling" aria-hidden="true">
-                <span class="kf__text text-uppercase">Keyframes</span>
+              <span className="kf__row kf__row--sibling" aria-hidden="true">
+                <span className="kf__text text-uppercase">Keyframes</span>
               </span>
-              <span class="kf__row kf__row--sibling" aria-hidden="true">
-                <span class="kf__text text-uppercase">Keyframes</span>
+              <span className="kf__row kf__row--sibling" aria-hidden="true">
+                <span className="kf__text text-uppercase">Keyframes</span>
               </span>
             </h1>
           </div>
