@@ -458,4 +458,408 @@ const CRUDSchema = new Schema({
 })
 
 module.exports = mongoose.model('CRUD', CRUDSchema)`,
+
+  readCodeUXUI: `import React, { useEffect } from 'react'
+import { connect } from 'react-redux'
+import { readAllCrud } from '../../../actions'
+import './_display.scss'
+
+const CrudDisplay = ({
+  readAllCrud,
+  crud: { allCrud, loading: crud_loading },
+}) => {
+  /* Load all entries */
+  useEffect(() => {
+    readAllCrud()
+  }, [])
+
+  /* Map Through Array */
+  const CrudList = () => {
+    return ( <> Map Through Array </> )
+  }
+
+  return (
+    <div className="crudDisplay m-5">
+      {/* Mapped List */}
+      {!crud_loading ? <p>Loading...</p> : <CrudList />}
+    </div>
+  )
+}
+
+const mapStateToProps = (state) => ({
+  crudReducer: state.crudReducer,
+  crud: state.crud,
+})
+
+export default connect(mapStateToProps, {
+  readAllCrud,
+})(CrudDisplay)
+`,
+
+  readCodeRoutes: `const express = require('express')
+const router = express.Router()
+
+// load Model
+const crudModel = require('../models/crudModel')
+
+// @Route   GET api/crud/
+// @Desc    Read All CRUD
+// @Action  readAllCRUD()
+// @Access  Private
+router.get('/', async (req, res) => {
+  try {
+    /* Sort Entries by Last Name */
+    const crud = await crudModel.find().sort('lastName')
+    if (crud.length <= 0) {
+      return res.status(400).json({
+        errors: [{ msg: 'No crud was found' }],
+      })
+    }
+
+    return res.json(crud)
+  } catch (err) {
+    console.error(err.message)
+    return res.status(500).send('Server Error')
+  }
+})
+
+// @Route   GET api/crud/:id
+// @Desc    Read CRUD by ID
+// @Action  readCRUD()
+// @Access  Private
+router.get('/:id', async (req, res) => {
+  try {
+    const crud = await crudModel.findOne({ _id: req.params.id })
+    if (!crud) {
+      return res.status(400).json({
+        errors: [{ msg: 'No crud was found' }],
+      })
+    }
+
+    return res.json(crud)
+  } catch (err) {
+    console.error(err.message)
+    return res.status(500).send('Server Error')
+  }
+})`,
+
+  readCodeActions: `import axios from 'axios'
+
+export const GET_ALL_CRUD = 'GET_ALL_CRUD'
+export const GET_ONE_CRUD = 'GET_ONE_CRUD''
+export const CRUD_FAIL = 'CRUD_FAIL'
+
+// @Route   GET api/crud
+// @Desc    Read All Crud
+// @Action  readAllCrud()
+// @Access  Private
+export const readAllCrud = () => async (dispatch) => {
+  //dispatch({ type: CRUD_LOADING })
+  try {
+    const res = await axios.get('/api/crud')
+    dispatch({
+      type: GET_ALL_CRUD,
+      payload: res.data,
+    })
+  } catch (err) {
+    if (err.response.data.errors) {
+      dispatch({
+        payload: { msg: err.response.statusText, status: err.response.status },
+      })
+    }
+
+    dispatch({
+      type: CRUD_FAIL,
+      payload: { msg: err.response.statusText, status: err.response.status },
+    })
+  }
+}
+
+// @Route   GET api/crud/:id
+// @Desc    Read Crud by ID
+// @Action  readCrud()
+// @Access  Private
+export const readCrud = (id) => async (dispatch) => {
+  dispatch({ type: RESET_CRUD })
+  try {
+    const res = await axios.get('/api/crud/id')
+    dispatch({
+      type: GET_ONE_CRUD,
+      payload: res.data,
+    })
+  } catch (err) {
+    if (err.response.data.errors) {
+      dispatch({
+        payload: { msg: err.response.statusText, status: err.response.status },
+      })
+    }
+
+    dispatch({
+      type: CRUD_FAIL,
+      payload: { msg: err.response.statusText, status: err.response.status },
+    })
+  }
+}`,
+
+  readCodeReducer: `import {
+  GET_ALL_CRUD,
+  GET_ONE_CRUD,
+  CRUD_FAIL,
+} from '../actions'
+
+const crudReducer = (
+  state = {
+    allCrud: [], // Pulls in all crud
+    crud: null, // Pulls in Specific crud
+    loading: false, // Has everything needed been loaded
+    success: {},
+    error: {},
+  },
+  action,
+) => {
+  const { type, payload } = action
+  switch (type) {
+    case GET_ALL_CRUD:
+      return {
+        ...state,
+        allCrud: payload,
+        loading: true,
+      }
+    case GET_ONE_CRUD:
+      return {
+        ...state,
+        crud: payload,
+        loading: true,
+      }
+    case CRUD_FAIL:
+      return {
+        ...state,
+        error: payload,
+        allCrud: [],
+        crud: null,
+        loading: false,
+      }
+    default:
+      return state
+  }
+}
+
+export default crudReducer
+`,
+
+  updateCodeUXUI: `import React, { useEffect, useState } from 'react'
+import { useHistory, useParams } from 'react-router-dom'
+import { connect } from 'react-redux'
+import {
+  TextField,
+  SelectListOption,
+  ToggleSwitch,
+  Loading,
+} from '../../../components'
+import { updateCrud, readCrud } from '../../../actions'
+import { USAStates } from '../../../utils'
+import './_update.scss'
+
+const UpdateCrud = ({
+  updateCrud,
+  readCrud,
+  crud: { loading: crud_loading, crud },
+}) => {
+  const history = useHistory()
+  const [formData, setFormData] = useState({ firstName: '', lastName: '', usaStreet: '', usaCity: '', usaState: '', usaZip: '', question: false, })
+
+  // Get ID from URL
+  const { id } = useParams()
+
+  useEffect(() => {
+    // Find Employment by ID
+    readCrud(id)
+  }, [])
+
+  // Set formData if it exisits
+  useEffect(() => {
+    if (crud_loading && crud !== null) {
+      setFormData({
+        usaCity: !crud.address.usaCity ? '' : crud.address.usaCity,
+        usaState: !crud.address.usaState ? '' : crud.address.usaState,
+        usaStreet: !crud.address.usaStreet ? '' : crud.address.usaStreet,
+        usaZip: !crud.address.usaZip ? '' : crud.address.usaZip,
+        firstName: !crud.name.firstName ? '' : crud.name.firstName,
+        lastName: !crud.name.lastName ? '' : crud.name.lastName,
+        question: !crud.question ? false : crud.question,
+      })
+    }
+  }, [crud_loading])
+
+  const {
+    firstName, lastName, usaStreet, usaCity, usaState, usaZip, question, } = formData
+
+  // Captures changes made to the form data
+  const onChange = (e) => { setFormData({ ...formData, [e.target.name]: e.target.value }) }
+
+  const onToggle = (question) => { setFormData({ ...formData, question: question }) }
+
+  const onUpdate = (e) => {
+    e.preventDefault()
+
+    // Trim white space off input's
+    let trimFormData = {
+      ...formData,
+      firstName: firstName.trim(),
+      lastName: lastName.trim(),
+      usaStreet: usaStreet.trim(),
+      usaCity: usaCity.trim(),
+      usaState: usaState,
+      usaZip: usaZip,
+      question: question,
+    }
+
+    // send trimmed formData to the API
+    updateCrud(id, trimFormData)
+
+    // clear formData
+    setFormData({ firstName: '', lastName: '', usaStreet: '', usaCity: '', usaState: '', usaZip: '', question: false, })
+
+    // Redirect to CV
+    history.push('/crud')
+  }
+
+  return (
+    <div className="crudUpdate m-5">
+      {!crud_loading ? ( <Loading /> ) : ( <></> )}
+    </div>
+  )
+}
+
+const mapStateToProps = (state) => ({
+  crud: state.crud,
+})
+
+export default connect(mapStateToProps, {
+  updateCrud,
+  readCrud,
+})(UpdateCrud)
+`,
+
+  updateCodeRoutes: `// @Route   PUT api/crud/update-crud/:id
+// @Desc    Update CRUD
+// @Action  updateCRUD()
+// @Access  Private
+router.post('/update-crud/:id', async (req, res) => {
+  const { firstName, lastName, usaStreet, usaCity, usaState, usaZip, question, } = req.body
+
+  const newEntry = {
+    name: {
+      firstName: firstName || '',
+      lastName: lastName || '',
+    },
+    address: {
+      usaStreet: usaStreet || '',
+      usaCity: usaCity || '',
+      usaState: usaState || '',
+      usaZip: usaZip || '',
+    },
+    question: question || false,
+  }
+
+  try {
+    let crud = await crudModel.findById(req.params.id)
+    // Check if it exsists
+    if (!crud) {
+      return res.status(400).json({
+        errors: [{ msg: 'CRUD does not exist' }],
+      })
+    }
+
+    crud = await crudModel.findOneAndUpdate(
+      {
+        _id: req.params.id,
+      },
+      { $set: newEntry },
+      { new: true },
+    )
+    res.json(crud)
+  } catch (err) {
+    console.error('updateCRUD Route: ', err.message)
+    res.status(500).send('Server Error')
+  }
+})`,
+
+  updateCodeActions: `export const UPDATE_CRUD = 'UPDATE_CRUD'
+export const CRUD_FAIL = 'CRUD_FAIL'
+
+// @Route   PUT api/crud/update-crud/:id
+// @Desc    Update Crud
+// @Action  updateCrud()
+// @Access  Private
+export const updateCrud = (id, formData) => async (dispatch) => {
+  try {
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    }
+    const res = await axios.post(
+      '/api/crud/update-crud/id',
+      formData,
+      config,
+    )
+    dispatch({
+      type: UPDATE_CRUD,
+      payload: res.data,
+    })
+  } catch (err) {
+    console.log(err)
+    dispatch({
+      type: CRUD_FAIL,
+      payload: { msg: err.response.statusText, status: err.response.status },
+    })
+  }
+}`,
+
+  updateCodeReducer: `import {
+  GET_ONE_CRUD,
+  UPDATE_CRUD,
+  DELETE_CRUD,
+  CRUD_FAIL,
+} from '../actions'
+
+const crudReducer = (
+  state = {
+    allCrud: [], // Pulls in all crud
+    crud: null, // Pulls in Specific crud
+    loading: false, // Has everything needed been loaded
+    success: {},
+    error: {},
+  },
+  action,
+) => {
+  const { type, payload } = action
+  switch (type) {
+    case GET_ONE_CRUD:
+      return {
+        ...state,
+        crud: payload,
+        loading: true,
+      }
+    case UPDATE_CRUD:
+      return {
+        ...state,
+        crud: payload,
+        loading: true,
+      }
+    case CRUD_FAIL:
+      return {
+        ...state,
+        error: payload,
+        allCrud: [],
+        crud: null,
+        loading: false,
+      }
+    default:
+      return state
+  }
+}
+
+export default crudReducer`,
 }

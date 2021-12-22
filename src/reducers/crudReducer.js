@@ -1,6 +1,7 @@
 import {
   GET_ALL_CRUD,
   GET_ONE_CRUD,
+  UPDATE_CRUD,
   DELETE_CRUD,
   RESET_CRUD,
   CRUD_LOADING,
@@ -27,6 +28,12 @@ const crudReducer = (
         loading: true,
       }
     case GET_ONE_CRUD:
+      return {
+        ...state,
+        crud: payload,
+        loading: true,
+      }
+    case UPDATE_CRUD:
       return {
         ...state,
         crud: payload,

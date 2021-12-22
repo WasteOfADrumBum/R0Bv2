@@ -14,6 +14,12 @@ const Portfolio = () => {
       <div className="portfolioHdr m-0 m-auto mb-2 text-center text-uppercase">
         Portfolio
       </div>
+      <div className="text-center mb-5">
+        <i>
+          Here's a few projects I've worked on. Some of these are behind admin
+          walls, but feel free to reach out to me for details.
+        </i>
+      </div>
       {isAuthenticated && <PortfolioCMS />}
       <PortfolioRender />
       <ScrollToTop />

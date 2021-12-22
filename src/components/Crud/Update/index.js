@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react'
+import { useHistory, useParams } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { useParams } from 'react-router-dom'
 import {
   TextField,
   SelectListOption,
@@ -13,11 +13,11 @@ import { USAStates } from '../../../utils'
 import './_update.scss'
 
 const UpdateCrud = ({
-  history,
   updateCrud,
   readCrud,
   crud: { loading: crud_loading, crud },
 }) => {
+  const history = useHistory()
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',

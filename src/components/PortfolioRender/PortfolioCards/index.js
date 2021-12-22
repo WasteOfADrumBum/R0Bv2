@@ -2,6 +2,9 @@
 import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
 import moment from 'moment'
+import { Stack, Paper } from '@mui/material/'
+import { Masonry } from '@mui/lab'
+import { styled } from '@mui/material/styles'
 import { deletePortfolio, readPortfolio } from '../../../actions'
 import './_portfolioCards.scss'
 
@@ -46,7 +49,7 @@ const PortfolioCards = ({
           <>
             {sortedData.map((project, i) => {
               return (
-                <div className="card" key={`${project} + ${i}`}>
+                <div className="card m-2" key={`${project} + ${i}`}>
                   <div className="imgWrapper">
                     {project.imgSrc ? (
                       <img
@@ -133,7 +136,9 @@ const PortfolioCards = ({
         <p>Loading...</p>
       ) : (
         <div className="portfolioCards">
-          {portfolio && portfolio.length > 0 && <Card />}
+          <Masonry columns={{ xs: 3, sm: 4 }} spacing={1}>
+            {portfolio && portfolio.length > 0 && <Card />}
+          </Masonry>
         </div>
       )}
     </>

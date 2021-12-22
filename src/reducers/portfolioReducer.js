@@ -11,8 +11,8 @@ import {
 
 const resumePortfolioReducer = (
   state = {
-    portfolio: [], // Pulls in all porjects
-    porject: null, // Pulls in Specific porject
+    portfolio: [], // Pulls in all projects
+    project: null, // Pulls in Specific project
     loading: false, // Has everything need been loaded
     success: {},
     error: {},
@@ -30,13 +30,13 @@ const resumePortfolioReducer = (
     case GET_ONE_PORTFOLIO:
       return {
         ...state,
-        porject: payload,
+        project: payload,
         loading: true,
       }
     case UPDATE_PORTFOLIO:
       return {
         ...state,
-        porject: payload,
+        project: payload,
         loading: true,
       }
     case DELETE_PORTFOLIO:
@@ -48,14 +48,14 @@ const resumePortfolioReducer = (
     case RESET_PORTFOLIO:
       return {
         ...state,
-        porject: null,
+        project: null,
         loading: false,
       }
     case PORTFOLIO_LOADING:
       return {
         ...state,
         loading: true,
-        porject: null,
+        project: null,
         error: {},
       }
     case PORTFOLIO_FAIL:
@@ -63,13 +63,13 @@ const resumePortfolioReducer = (
         ...state,
         error: payload,
         portfolio: [],
-        porject: null,
+        project: null,
         loading: false,
       }
     case PORTFOLIO_SUCCESS:
       return {
         ...state,
-        porject: payload,
+        project: payload,
         portfolio: [payload, ...state.portfolio],
         loading: false,
       }
