@@ -1,0 +1,244 @@
+@import '../../assets/styleSheets/global';
+
+.keyFrames {
+    .eyeBalls {
+        grid-template-columns: max-content max-content;
+        justify-content: center;
+    }
+
+    .keyFramesShapes {
+        grid-template-columns: 100px 100px 100px;
+        justify-items: center;
+        height: 100px;
+        align-items: center;
+
+        .squareShape {
+            width: 75px;
+            height: 75px;
+            background-color: $blue;
+            border: 3px solid $navy;
+            animation: rotating 2s linear infinite;
+
+            @keyframes rotating {
+                from {
+                    transform: rotate(0deg);
+                }
+
+                to {
+                    transform: rotate(360deg);
+                }
+            }
+        }
+
+        .squareRoundedContainer {
+            background: $purple;
+            border-radius: 16px;
+            display: grid;
+            height: 75px;
+            overflow: hidden;
+            place-items: center;
+            position: relative;
+            width: 75px;
+            border: 3px solid $ruby;
+
+
+            .squareRounded {
+                --delay: 1s;
+                animation: grow 10s linear infinite;
+                animation-delay: var(--delay);
+                background: $ruby;
+                height: 25px;
+                opacity: 0.5;
+                position: absolute;
+                width: 25px;
+
+                &:nth-child(2) {
+                    --delay: 2s;
+                }
+
+                &:nth-child(3) {
+                    --delay: 3s;
+                }
+
+                &:nth-child(4) {
+                    --delay: 4s;
+                }
+
+                &:nth-child(5) {
+                    --delay: 5s;
+                }
+
+                &:nth-child(6) {
+                    --delay: 6s;
+                }
+
+                &:nth-child(7) {
+                    --delay: 7s;
+                }
+
+                &:nth-child(8) {
+                    --delay: 8s;
+                }
+
+                &:nth-child(9) {
+                    --delay: 9s;
+                }
+
+                &:nth-child(10) {
+                    --delay: 10s;
+                }
+            }
+
+
+            @keyframes grow {
+                from {
+                    opacity: 0.5;
+                    transform: scale(0);
+                }
+
+                to {
+                    opacity: 0;
+                    transform: scale(3.85);
+                }
+            }
+        }
+
+        .circleShape {
+            width: 75px;
+            height: 75px;
+            background-color: $gold;
+            border: 3px solid $black;
+            animation: bounce 0.5s;
+            animation-direction: alternate;
+            animation-timing-function: cubic-bezier(.5, 0.05, 1, .5);
+            animation-iteration-count: infinite;
+
+            @keyframes bounce {
+                from {
+                    transform: translate3d(0, 0, 0);
+                }
+
+                to {
+                    transform: translate3d(0, 200px, 0);
+                }
+            }
+
+            @-webkit-keyframes bounce {
+                from {
+                    -webkit-transform: translate3d(0, 0, 0);
+                    transform: translate3d(0, 0, 0);
+                }
+
+                to {
+                    -webkit-transform: translate3d(0, 200px, 0);
+                    transform: translate3d(0, 200px, 0);
+                }
+            }
+        }
+    }
+
+    .keyFramesTitle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+        .kf {
+            position: relative;
+            font-family: 'Staatliches', sans-serif;
+            text-transform: uppercase;
+            font-display: swap;
+            text-shadow: 0 0 10px $fireOpal;
+            @include fluid-type(font-size, 320px, 1140px, 45px, 60px);
+
+            &__row {
+                display: block;
+
+                &:nth-child(1) {
+                    clip-path: polygon(-10% 75%, 110% 75%, 110% 110%, -10% 110%);
+
+                    .kf__text {
+                        transform: translateY(-0.1em);
+                    }
+                }
+
+                &:nth-child(2) {
+                    clip-path: polygon(-10% 50%, 110% 50%, 110% 75.3%, -10% 75.3%);
+
+                    .kf__text {
+                        transform: translateY(-0.3em) scaleY(1.1);
+                    }
+                }
+
+                &:nth-child(3) {
+                    clip-path: polygon(-10% 25%, 110% 25%, 110% 50.3%, -10% 50.3%);
+
+                    .kf__text {
+                        transform: translateY(-0.5em) scaleY(1.2);
+                    }
+                }
+
+                &:nth-child(4) {
+                    clip-path: polygon(-10% 0%, 110% 0%, 110% 25.3%, -10% 25.3%);
+
+                    .kf__text {
+                        transform: translateY(-0.7em) scaleY(1.3);
+                    }
+                }
+
+                &:nth-child(5) .kf__text {
+                    transform: translateY(-0.9em) scaleY(1.4);
+                }
+
+                &:nth-child(6) .kf__text {
+                    transform: translateY(-1.1em) scaleY(1.5);
+                }
+            }
+        }
+
+
+        .kf__row.kf__row--sibling {
+            position: absolute;
+            top: 0;
+            left: 0;
+            user-select: none;
+        }
+
+        .kf__text {
+            display: block;
+            transform-origin: bottom left;
+            animation: moveIn 2s 0s cubic-bezier(.36, 0, .06, 1) alternate infinite;
+        }
+
+        .debug .kf__row {
+            &:nth-child(even) {
+                color: $black;
+                background: $white;
+            }
+
+            &:nth-child(odd) {
+                color: $white;
+                background: $black;
+            }
+        }
+
+        @keyframes moveIn {
+
+            50%,
+            100% {
+                transform: translateY(0em)
+            }
+
+            0% {
+                opacity: 0;
+                filter: blur(10px);
+
+            }
+
+            100% {
+                opacity: 1;
+                filter: blur(0px);
+            }
+        }
+    }
+}

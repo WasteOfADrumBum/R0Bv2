@@ -14,6 +14,7 @@ export { default as GreenSock } from './GreenSock'
 export { default as Grapes } from './Grapes'
 export { default as MUI } from './MUI'
 export { default as EyeBall } from './EyeBall'
+export { default as KeyFrames } from './KeyFrames'
 // ----- Buttons -----
 export { default as AuthBtn } from './AuthBtn'
 export { default as LoginBtn } from './LoginBtn'
