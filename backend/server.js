@@ -31,9 +31,9 @@ if (process.env.NODE_ENV === 'production') {
   app.use(express.static('public/build'))
 }
 app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, 'public', 'build', 'index.html'))
+  res.sendFile(path.resolve(__dirname, '../public', '../build', 'index.html'))
 })
 
 // PORT
-const PORT = process.env.PORT || PORTprocess.env.REACT_APP_SERVER_PORT || 6060
+const PORT = process.env.PORT || process.env.REACT_APP_SERVER_PORT || 6060
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}`))
