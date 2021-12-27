@@ -13,7 +13,48 @@ This project exisits to show my passion for coding. It has been built with all m
 ![GitHub top language](https://img.shields.io/github/languages/top/WasteOfADrumBum/R0Bv2?color=green&logo=github&logoColor=green)
 ![GitHub language count](https://img.shields.io/github/languages/count/WasteOfADrumBum/R0Bv2?color=green&logo=github&logoColor=green)
 
-Languages: I chose to use React.js as the foundation of the user interface, Auth0 for the Authentication and authorization platform as well as Bootstrap's CSS Framework for developing a responsive and mobile-first website.
+### Dependencies:
+
+- @auth0/auth0-react: ^1.8.0,
+- @emotion/react: ^11.7.1,
+- @emotion/styled: ^11.6.0,
+- @material-ui/core: ^4.12.3,
+- @material-ui/icons: ^4.11.2,
+- @material-ui/lab: ^4.0.0-alpha.60,
+- @mui/lab: ^5.0.0-alpha.61,
+- @mui/material: ^5.2.4,
+- @popperjs/core: ^2.11.0,
+- @types/react-select: ^5.0.0,
+- axios: ^0.24.0,
+- body-parser: ^1.19.1,
+- bootstrap: ^5.1.3,
+- bootstrap-icons: ^1.7.2,
+- concurrently: ^6.5.1,
+- cors: ^2.8.5,
+- express: ^4.17.2,
+- file-saver: ^2.0.5,
+- grapesjs: ^0.17.29,
+- gsap: ^3.9.0,
+- jquery: ^3.6.0,
+- moment: ^2.29.1,
+- mongodb: ^4.2.2,
+- mongoose: ^6.1.2,
+- node-sass: ^7.0.0,
+- nodemon: ^2.0.15,
+- react: ^17.0.2,
+- react-code-blocks: 0.0.9-0,
+- react-country-flag: ^3.0.2,
+- react-datepicker: ^4.5.0,
+- react-dom: ^17.0.2,
+- react-moment: ^1.1.1,
+- react-redux: ^7.2.6,
+- react-router-dom: ^5.2.0,
+- react-scripts: 5.0.0,
+- react-select: ^5.2.1,
+- react-to-print: ^2.14.2,
+- redux-devtools-extension: ^2.13.9,
+- redux-thunk: ^2.4.1,
+- sass: ^1.45.1
 
 ## Table of contents
 
