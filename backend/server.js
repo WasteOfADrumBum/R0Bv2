@@ -28,11 +28,12 @@ app.use('/api/crud', require('./routes/crudRoutes'))
 
 if (process.env.NODE_ENV === 'production') {
   //set static folder
-  app.use(express.static('public/build'))
+  app.use(express.static('build'))
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, '../build', 'index.html'))
+  })
 }
-app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '../public', 'index.html'))
-})
 
 // PORT
 const PORT = process.env.PORT || process.env.REACT_APP_SERVER_PORT || 6060
