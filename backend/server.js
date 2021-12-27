@@ -24,7 +24,15 @@ app.use('/api/portfolio', require('./routes/portfolioRoutes'))
 app.use('/api/skills', require('./routes/skillsRoutes'))
 app.use('/api/crud', require('./routes/crudRoutes'))
 
-app.get('/', (req, res) => res.send('Server is up and running'))
+//app.get('/', (req, res) => res.send('Server is up and running'))
+
+if (process.env.NODE_ENV === 'production') {
+  //set static folder
+  app.use(express.static('public/build'))
+}
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, 'public', 'build', 'index.html'))
+})
 
 // PORT
 const PORT = process.env.PORT || PORTprocess.env.REACT_APP_SERVER_PORT || 6060
