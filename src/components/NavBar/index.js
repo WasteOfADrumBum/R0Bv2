@@ -20,12 +20,12 @@ const NavBar = () => {
         </button>
         <div className="collapse navbar-collapse" id="mainNavBar">
           <a className="navbar-brand" href="/">
-            ←
+            ⇜
             <b>
-              <span className="react">R</span>-<span className="auth0">0</span>-
+              <span className="react">R</span>⥽<span className="auth0">0</span>⥼
               <span className="bootstrap">B</span>
             </b>
-            →
+            ⇝
           </a>
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
