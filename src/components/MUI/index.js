@@ -1,8 +1,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react'
 import {} from '../../components'
+import BadgeVisibility from './BadgeVisibility'
 import TitlebarImageList from './ImageList'
 import ImageMasonry from './Masonry'
+import TransitionGroupComponent from './TransitionGroup'
+import MailMenu from './MailMenu'
 import './_mui.scss'
 
 const MUI = () => {
@@ -118,6 +121,18 @@ const MUI = () => {
         </div>
         <div className="col-md-4 d-flex justify-content-center">
           <ImageMasonry />
+        </div>
+      </div>
+
+      <div className="row my-5 ">
+        <div className="col-md-4 d-flex justify-content-center align-items-center">
+          <TransitionGroupComponent />
+        </div>
+        <div className="col-md-4 d-flex justify-content-center align-items-center">
+          <MailMenu />
+        </div>
+        <div className="col-md-4 d-flex justify-content-center align-items-center">
+          <BadgeVisibility />
         </div>
       </div>
     </div>
