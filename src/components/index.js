@@ -29,6 +29,7 @@ export { default as Loading } from './Loading'
 export { default as ContentLoading } from './ContentLoading'
 export { default as Footer } from './Footer'
 export { default as License } from './License'
+export { default as Banner } from './Banner'
 // ----- Code Snippets ------
 export { default as Auth0Snippets } from './CodeSnippets/Auth0Snippet'
 export { default as CodeSnippets } from './CodeSnippets/CodeSnippet'
