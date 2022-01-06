@@ -14,7 +14,7 @@ const BootstrapSnippets = () => {
         <b>Bootstrap v5.1:</b> Responsive & Mobile-First Web Development
       </h4>
       <p>
-        Boostrap allows for quick design and customize responsive mobile-first
+        Bootstrap allows for quick design and customize responsive mobile-first
         sites. Bootstrap is the world’s most popular front-end open source
         toolkit, featuring Sass variables and mixins, responsive grid system,
         extensive prebuilt components, and powerful JavaScript plugins. I chose
